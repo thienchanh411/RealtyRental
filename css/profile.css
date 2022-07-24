@@ -1,0 +1,60 @@
+.main-section {
+    margin-top: 90px;
+}
+
+@media (min-width: 992px) {
+    .row.equal {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .probootstrap-card.probootstrap-person .probootstrap-card-media img {
+        height: 200px;
+    }
+
+    .padding-0 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.probootstrap-person,
+.profile-detail {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.probootstrap-person .probootstrap-card-text {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex: 1;
+}
+
+.probootstrap-person .probootstrap-card-text p {
+    margin-bottom: 5px;
+}
+
+.profile-detail {
+    background: #fff;
+    -webkit-box-shadow: 0 6px 68px -6px rgba(0, 0, 0, .09);
+    box-shadow: 0 6px 68px -6px rgba(0, 0, 0, .09);
+    padding: 30px;
+}
+
+.profile-detail form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.profile-detail form .control-label {
+    color: #333;
+    font-weight: normal;
+}
+
+.profile-detail form h2 {
+    margin-top: 0;
+}

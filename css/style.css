@@ -41,7 +41,12 @@ body {
   color: #ffffff;
 }
 
-h1, h2, h3, .service .heading, .probootstrap-card .probootstrap-card-text .probootstrap-card-heading, h4 {
+h1,
+h2,
+h3,
+.service .heading,
+.probootstrap-card .probootstrap-card-text .probootstrap-card-heading,
+h4 {
   margin: 1.414em 0 0.5em;
   font-weight: inherit;
   line-height: 1.2;
@@ -65,11 +70,15 @@ h4 {
   font-size: 1.125em;
 }
 
-small, .font_small {
+small,
+.font_small {
   font-size: 0.889em;
 }
 
-p, ul, ol, figure {
+p,
+ul,
+ol,
+figure {
   margin-bottom: 1.3em;
 }
 
@@ -91,8 +100,8 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
 }
 
 .probootstrap-header {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   width: 100%;
   background: #ffffff;
   z-index: 12;
@@ -105,13 +114,13 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
 .probootstrap-logo {
   float: left;
   color: #2866AB;
-  padding-left: 20px;
   font-size: 20px;
   display: block;
   text-transform: uppercase;
   font-weight: 900;
   font-family: "Open Sans", sans-serif;
-  height: 1.5em;
+  height: 50px;
+  padding: 10px 0 10px 20px;
 }
 .probootstrap-logo:hover, .probootstrap-logo:focus, .probootstrap-logo:active {
   color: #2866AB;
@@ -196,7 +205,7 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   margin: 0;
   padding: 0 10px;
   list-style: none;
-  display: inline;
+  display: inline-block;
   font-size: 18px;
 }
 .probootstrap-mobile-menu-active .probootstrap-main-nav li {
@@ -204,6 +213,26 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   display: block;
   padding-left: 0;
   padding-right: 0;
+}
+.probootstrap-main-nav li.dropdown {
+  line-height: inherit;
+}
+.probootstrap-mobile-menu-active.show .probootstrap-main-nav li.dropdown .dropdown-menu {
+  position: relative;
+}
+.probootstrap-main-nav li.dropdown.open ul li {
+  padding: 0;
+  display: inline;
+}
+.probootstrap-mobile-menu-active.show .probootstrap-main-nav li.dropdown.open ul li.active a {
+  color: #ffffff;
+}
+.probootstrap-main-nav li.dropdown.open ul li a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.probootstrap-mobile-menu-active.show .probootstrap-main-nav li.dropdown.open ul li a {
+  color: #000000;
 }
 .probootstrap-main-nav li a {
   font-weight: 400;
@@ -229,6 +258,11 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
 }
 .probootstrap-mobile-menu-active .probootstrap-main-nav li a:hover {
   color: #2866AB;
+}
+.probootstrap-main-nav li a .avatar {
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #161C2E;
 }
 .probootstrap-main-nav li.probootstrap-cta {
   margin-left: 20px;
@@ -256,6 +290,9 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
 }
 .probootstrap-main-nav li.active a:hover {
   border-bottom: 2px solid #2866AB;
+}
+.probootstrap-main-nav li.active a:hover .avatar {
+  border: 2px solid #2866AB;
 }
 .probootstrap-mobile-menu-active .probootstrap-main-nav li.active a {
   border-bottom: none !important;
@@ -519,7 +556,7 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   color: rgba(255, 255, 255, 0.6);
 }
 .probootstrap-section.probootstrap-section-lighter {
-  background: #e0e0e0;
+  background: #f7f7f7;
 }
 @media screen and (max-width: 768px) {
   .probootstrap-section {
@@ -643,7 +680,13 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   color: #ffffff;
   text-decoration: underline;
 }
-.probootstrap-footer.probootstrap-bg h2, .probootstrap-footer.probootstrap-bg h3, .probootstrap-footer.probootstrap-bg .service .heading, .service .probootstrap-footer.probootstrap-bg .heading, .probootstrap-footer.probootstrap-bg .probootstrap-card .probootstrap-card-text .probootstrap-card-heading, .probootstrap-card .probootstrap-card-text .probootstrap-footer.probootstrap-bg .probootstrap-card-heading, .probootstrap-footer.probootstrap-bg h4 {
+.probootstrap-footer.probootstrap-bg h2,
+.probootstrap-footer.probootstrap-bg h3,
+.probootstrap-footer.probootstrap-bg .service .heading,
+.service .probootstrap-footer.probootstrap-bg .heading,
+.probootstrap-footer.probootstrap-bg .probootstrap-card .probootstrap-card-text .probootstrap-card-heading,
+.probootstrap-card .probootstrap-card-text .probootstrap-footer.probootstrap-bg .probootstrap-card-heading,
+.probootstrap-footer.probootstrap-bg h4 {
   color: #ffffff;
 }
 .probootstrap-footer.probootstrap-bg:before {
@@ -674,16 +717,20 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   outline: none;
   border: 1px solid #ffffff;
 }
-.probootstrap-footer form .form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+.probootstrap-footer form .form-control::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
   color: rgba(255, 255, 255, 0.5);
 }
-.probootstrap-footer form .form-control::-moz-placeholder { /* Firefox 19+ */
+.probootstrap-footer form .form-control::-moz-placeholder {
+  /* Firefox 19+ */
   color: rgba(255, 255, 255, 0.5);
 }
-.probootstrap-footer form .form-control:-ms-input-placeholder { /* IE 10+ */
+.probootstrap-footer form .form-control:-ms-input-placeholder {
+  /* IE 10+ */
   color: rgba(255, 255, 255, 0.5);
 }
-.probootstrap-footer form .form-control:-moz-placeholder { /* Firefox 18- */
+.probootstrap-footer form .form-control:-moz-placeholder {
+  /* Firefox 18- */
   color: rgba(255, 255, 255, 0.5);
 }
 .probootstrap-footer form .form-field {
@@ -755,7 +802,8 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
 .probootstrap-breadcrumbs {
   font-size: 14px;
 }
-.probootstrap-breadcrumbs a, .probootstrap-breadcrumbs span {
+.probootstrap-breadcrumbs a,
+.probootstrap-breadcrumbs span {
   display: inline-block;
   *display: inline;
   zoom: 1;
@@ -852,7 +900,8 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   display: table;
   margin-bottom: 20px;
 }
-.probootstrap-card.probootstrap-listing .probootstrap-card-text .probootstrap-listing-location i, .probootstrap-card.probootstrap-listing .probootstrap-card-text .probootstrap-listing-location span {
+.probootstrap-card.probootstrap-listing .probootstrap-card-text .probootstrap-listing-location i,
+.probootstrap-card.probootstrap-listing .probootstrap-card-text .probootstrap-listing-location span {
   display: table-cell;
   vertical-align: top;
 }
@@ -930,7 +979,6 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
 .probootstrap-card.probootstrap-person {
   background: #e0e0e0;
   text-align: center;
-  margin-bottom: 30px;
 }
 .probootstrap-card.probootstrap-person .probootstrap-card-media {
   padding-top: 30px;
@@ -1003,7 +1051,8 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
     width: 100%;
   }
 }
-.probootstrap-home-search .probootstrap-field-group .probootstrap-fields input, .probootstrap-home-search .probootstrap-field-group .probootstrap-fields select {
+.probootstrap-home-search .probootstrap-field-group .probootstrap-fields input,
+.probootstrap-home-search .probootstrap-field-group .probootstrap-fields select {
   border-radius: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1015,7 +1064,9 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   border: none;
   width: 100%;
 }
-.probootstrap-home-search .probootstrap-field-group .probootstrap-fields input:active, .probootstrap-home-search .probootstrap-field-group .probootstrap-fields input:focus, .probootstrap-home-search .probootstrap-field-group .probootstrap-fields select:active, .probootstrap-home-search .probootstrap-field-group .probootstrap-fields select:focus {
+.probootstrap-home-search .probootstrap-field-group .probootstrap-fields input:active, .probootstrap-home-search .probootstrap-field-group .probootstrap-fields input:focus,
+.probootstrap-home-search .probootstrap-field-group .probootstrap-fields select:active,
+.probootstrap-home-search .probootstrap-field-group .probootstrap-fields select:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
   outline: none !important;
@@ -1102,7 +1153,8 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   color: #ffffff;
 }
 
-.product-item, .media-item {
+.product-item,
+.media-item {
   -webkit-box-shadow: 0px 6px 68px -6px rgba(0, 0, 0, 0.09);
   box-shadow: 0px 6px 68px -6px rgba(0, 0, 0, 0.09);
   background: #ffffff;
@@ -1110,18 +1162,22 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   border-radius: 7px;
   overflow: hidden;
 }
-.product-item figure, .media-item figure {
+.product-item figure,
+.media-item figure {
   margin-bottom: 0;
 }
-.product-item .text, .media-item .text {
+.product-item .text,
+.media-item .text {
   padding: 20px;
 }
-.product-item .text .heading, .media-item .text .heading {
+.product-item .text .heading,
+.media-item .text .heading {
   font-size: 20px;
   margin-top: 0;
   line-height: 1.4;
 }
-.product-item .text p:last-child, .media-item .text p:last-child {
+.product-item .text p:last-child,
+.media-item .text p:last-child {
   margin-bottom: 0;
 }
 
@@ -1132,11 +1188,13 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
-.probootstrap-half .image-wrap, .probootstrap-half .text {
+.probootstrap-half .image-wrap,
+.probootstrap-half .text {
   width: 50%;
 }
 @media screen and (max-width: 1000px) {
-  .probootstrap-half .image-wrap, .probootstrap-half .text {
+  .probootstrap-half .image-wrap,
+.probootstrap-half .text {
     width: 100%;
   }
 }
@@ -1173,7 +1231,14 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
 .probootstrap-half .text .subtitle {
   color: rgba(255, 255, 255, 0.2);
 }
-.probootstrap-half .text h2, .probootstrap-half .text h3, .probootstrap-half .text .service .heading, .service .probootstrap-half .text .heading, .probootstrap-half .text .probootstrap-card .probootstrap-card-text .probootstrap-card-heading, .probootstrap-card .probootstrap-card-text .probootstrap-half .text .probootstrap-card-heading, .probootstrap-half .text h4, .probootstrap-half .text h5 {
+.probootstrap-half .text h2,
+.probootstrap-half .text h3,
+.probootstrap-half .text .service .heading,
+.service .probootstrap-half .text .heading,
+.probootstrap-half .text .probootstrap-card .probootstrap-card-text .probootstrap-card-heading,
+.probootstrap-card .probootstrap-card-text .probootstrap-half .text .probootstrap-card-heading,
+.probootstrap-half .text h4,
+.probootstrap-half .text h5 {
   color: #ffffff;
 }
 .probootstrap-half .text h3, .probootstrap-half .text .service .heading, .service .probootstrap-half .text .heading, .probootstrap-half .text .probootstrap-card .probootstrap-card-text .probootstrap-card-heading, .probootstrap-card .probootstrap-card-text .probootstrap-half .text .probootstrap-card-heading {
@@ -1372,7 +1437,8 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   border: none;
   margin-bottom: 20px !important;
 }
-.service.left-icon .icon, .service.left-icon .text {
+.service.left-icon .icon,
+.service.left-icon .text {
   display: table-cell;
   vertical-align: top;
 }
@@ -1465,23 +1531,29 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   visibility: hidden;
 }
 
-.probootstrap-contact-info, .with-icon {
+.probootstrap-contact-info,
+.with-icon {
   padding: 0;
   margin: 0 0 30px 0;
   color: rgba(0, 0, 0, 0.4);
 }
-.probootstrap-contact-info li, .with-icon li {
+.probootstrap-contact-info li,
+.with-icon li {
   padding: 0;
   margin: 20px 0 15px 0;
   list-style: none;
   line-height: 24px;
   display: table;
 }
-.probootstrap-contact-info li > i, .probootstrap-contact-info li > span, .with-icon li > i, .with-icon li > span {
+.probootstrap-contact-info li > i,
+.probootstrap-contact-info li > span,
+.with-icon li > i,
+.with-icon li > span {
   vertical-align: top;
   display: table-cell;
 }
-.probootstrap-contact-info li > i, .with-icon li > i {
+.probootstrap-contact-info li > i,
+.with-icon li > i {
   font-size: 20px;
   position: relative;
   top: 4px;
@@ -1511,12 +1583,16 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
 }
 
 /* Flexslider override style */
-.slider-height, .flexslider .slides > li, .flexslider2 .slides > li, .flexslider, .flexslider2 {
+.slider-height, .flexslider .slides > li,
+.flexslider2 .slides > li, .flexslider,
+.flexslider2 {
   height: 800px;
   overflow: hidden;
 }
 @media screen and (max-width: 480px) {
-  .slider-height, .flexslider .slides > li, .flexslider2 .slides > li, .flexslider, .flexslider2 {
+  .slider-height, .flexslider .slides > li,
+.flexslider2 .slides > li, .flexslider,
+.flexslider2 {
     height: inherit;
     height: 500px;
   }
@@ -1526,7 +1602,8 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   font-size: 20px;
 }
 
-.flexslider, .flexslider2 {
+.flexslider,
+.flexslider2 {
   position: relative;
   z-index: 2;
   background: none;
@@ -1535,7 +1612,8 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   border-radius: 0px;
   color: rgba(255, 255, 255, 0.7);
 }
-.flexslider .overlay, .flexslider2 .overlay {
+.flexslider .overlay,
+.flexslider2 .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -1544,19 +1622,23 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   z-index: 3;
   background: rgba(0, 0, 0, 0.5);
 }
-.flexslider.page-inner, .flexslider2.page-inner {
+.flexslider.page-inner,
+.flexslider2.page-inner {
   height: 400px;
 }
-.flexslider.page-inner .slides > li, .flexslider2.page-inner .slides > li {
+.flexslider.page-inner .slides > li,
+.flexslider2.page-inner .slides > li {
   height: 400px;
 }
-.flexslider .btn, .flexslider2 .btn {
+.flexslider .btn,
+.flexslider2 .btn {
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 60px;
   padding-right: 60px;
 }
-.flexslider .probootstrap-heading, .flexslider2 .probootstrap-heading {
+.flexslider .probootstrap-heading,
+.flexslider2 .probootstrap-heading {
   color: #ffffff;
   font-weight: 300;
   font-size: 170px;
@@ -1565,61 +1647,75 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   text-transform: uppercase;
 }
 @media screen and (max-width: 768px) {
-  .flexslider .probootstrap-heading, .flexslider2 .probootstrap-heading {
+  .flexslider .probootstrap-heading,
+.flexslider2 .probootstrap-heading {
     font-size: 90px;
     line-height: 70px;
   }
 }
-.flexslider .probootstrap-heading a, .flexslider2 .probootstrap-heading a {
+.flexslider .probootstrap-heading a,
+.flexslider2 .probootstrap-heading a {
   color: rgba(255, 255, 255, 0.8);
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
-.flexslider .probootstrap-heading a:hover, .flexslider2 .probootstrap-heading a:hover {
+.flexslider .probootstrap-heading a:hover,
+.flexslider2 .probootstrap-heading a:hover {
   border-bottom: 2px solid rgb(255, 255, 255);
 }
-.flexslider .probootstrap-sub-wrap, .flexslider2 .probootstrap-sub-wrap {
+.flexslider .probootstrap-sub-wrap,
+.flexslider2 .probootstrap-sub-wrap {
   max-width: 600px;
   text-align: left;
   font-size: 20px;
   line-height: 1.5;
 }
-.flexslider .probootstrap-sub-wrap a, .flexslider2 .probootstrap-sub-wrap a {
+.flexslider .probootstrap-sub-wrap a,
+.flexslider2 .probootstrap-sub-wrap a {
   color: rgba(255, 255, 255, 0.8);
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
-.flexslider .probootstrap-sub-wrap a:hover, .flexslider2 .probootstrap-sub-wrap a:hover {
+.flexslider .probootstrap-sub-wrap a:hover,
+.flexslider2 .probootstrap-sub-wrap a:hover {
   border-bottom: 2px solid rgb(255, 255, 255);
 }
-.flexslider .text-center .probootstrap-sub-wrap, .flexslider2 .text-center .probootstrap-sub-wrap {
+.flexslider .text-center .probootstrap-sub-wrap,
+.flexslider2 .text-center .probootstrap-sub-wrap {
   margin: 0 auto;
   text-align: center;
 }
-.flexslider .probootstrap-slider-text, .flexslider2 .probootstrap-slider-text {
+.flexslider .probootstrap-slider-text,
+.flexslider2 .probootstrap-slider-text {
   margin-top: 300px;
 }
 @media screen and (max-width: 480px) {
-  .flexslider .probootstrap-slider-text, .flexslider2 .probootstrap-slider-text {
+  .flexslider .probootstrap-slider-text,
+.flexslider2 .probootstrap-slider-text {
     margin-top: 100px;
   }
 }
-.flexslider.probootstrap-inner, .flexslider2.probootstrap-inner {
+.flexslider.probootstrap-inner,
+.flexslider2.probootstrap-inner {
   height: 500px;
 }
-.flexslider.probootstrap-inner .probootstrap-slider-text, .flexslider2.probootstrap-inner .probootstrap-slider-text {
+.flexslider.probootstrap-inner .probootstrap-slider-text,
+.flexslider2.probootstrap-inner .probootstrap-slider-text {
   margin-top: 150px;
 }
 @media screen and (max-width: 480px) {
-  .flexslider.probootstrap-inner .probootstrap-slider-text, .flexslider2.probootstrap-inner .probootstrap-slider-text {
+  .flexslider.probootstrap-inner .probootstrap-slider-text,
+.flexslider2.probootstrap-inner .probootstrap-slider-text {
     margin-top: 100px;
   }
 }
-.flexslider .slides > li, .flexslider2 .slides > li {
+.flexslider .slides > li,
+.flexslider2 .slides > li {
   background-size: cover;
   background-position: center center;
   background-repeat: none;
   background-attachment: fixed;
 }
-.flexslider .slides > li.overlay:before, .flexslider2 .slides > li.overlay:before {
+.flexslider .slides > li.overlay:before,
+.flexslider2 .slides > li.overlay:before {
   content: "";
   background: rgba(255, 255, 255, 0.5);
   position: absolute;
@@ -1628,7 +1724,8 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   right: 0;
   bottom: 0;
 }
-.flexslider .slides > li.overlay2:before, .flexslider2 .slides > li.overlay2:before {
+.flexslider .slides > li.overlay2:before,
+.flexslider2 .slides > li.overlay2:before {
   content: "";
   background: rgba(0, 0, 0, 0.8);
   position: absolute;
@@ -1637,17 +1734,20 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   right: 0;
   bottom: 0;
 }
-.flexslider .flex-control-paging, .flexslider2 .flex-control-paging {
+.flexslider .flex-control-paging,
+.flexslider2 .flex-control-paging {
   position: absolute;
   bottom: 30px;
   z-index: 20;
 }
 @media screen and (max-width: 480px) {
-  .flexslider .flex-direction-nav, .flexslider2 .flex-direction-nav {
+  .flexslider .flex-direction-nav,
+.flexslider2 .flex-direction-nav {
     display: none;
   }
 }
-.flexslider .flex-direction-nav a, .flexslider2 .flex-direction-nav a {
+.flexslider .flex-direction-nav a,
+.flexslider2 .flex-direction-nav a {
   text-decoration: none;
   display: block;
   width: 30px;
@@ -1666,10 +1766,14 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   border-radius: 50%;
   padding: 30px;
 }
-.flexslider .flex-direction-nav a:hover, .flexslider .flex-direction-nav a:active, .flexslider .flex-direction-nav a:focus, .flexslider2 .flex-direction-nav a:hover, .flexslider2 .flex-direction-nav a:active, .flexslider2 .flex-direction-nav a:focus {
+.flexslider .flex-direction-nav a:hover, .flexslider .flex-direction-nav a:active, .flexslider .flex-direction-nav a:focus,
+.flexslider2 .flex-direction-nav a:hover,
+.flexslider2 .flex-direction-nav a:active,
+.flexslider2 .flex-direction-nav a:focus {
   outline: none;
 }
-.flexslider .flex-direction-nav a:before, .flexslider2 .flex-direction-nav a:before {
+.flexslider .flex-direction-nav a:before,
+.flexslider2 .flex-direction-nav a:before {
   font-family: "icomoon";
   speak: none;
   font-style: normal;
@@ -1692,7 +1796,8 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-.flexslider .flex-direction-nav a.flex-next:before, .flexslider2 .flex-direction-nav a.flex-next:before {
+.flexslider .flex-direction-nav a.flex-next:before,
+.flexslider2 .flex-direction-nav a.flex-next:before {
   content: "\e92a";
   left: 50%;
   top: 50%;
@@ -1866,7 +1971,8 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
   background: none;
   border: 2px solid #000000;
 }
@@ -1882,12 +1988,14 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
     text-align: center !important;
   }
 }
-.probootstrap-testimony-wrap figure, .probootstrap-testimony-wrap blockquote {
+.probootstrap-testimony-wrap figure,
+.probootstrap-testimony-wrap blockquote {
   display: table-cell;
   vertical-align: top;
 }
 @media screen and (max-width: 980px) {
-  .probootstrap-testimony-wrap figure, .probootstrap-testimony-wrap blockquote {
+  .probootstrap-testimony-wrap figure,
+.probootstrap-testimony-wrap blockquote {
     width: 100%;
     display: block;
   }
@@ -2214,4 +2322,9 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   text-decoration: none;
   outline: none;
   background: rgba(0, 0, 0, 0.9);
+}
+
+hr {
+  width: 100%;
+  border-top: 1px solid #374252;
 }
