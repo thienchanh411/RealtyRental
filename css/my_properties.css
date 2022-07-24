@@ -1,0 +1,123 @@
+.main-section {
+    padding-top: 90px;
+}
+
+@media (min-width: 992px) {
+    .row.equal {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .padding-0 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 320px) {
+    body > section > div > div > h2 > span.pull-right {
+        float: left !important;
+    }
+}
+
+.probootstrap-section.main-section > .container > .row > h2 {
+    line-height: 55px;
+}
+
+@media (max-width: 991.9px) {
+    .probootstrap-section.main-section > .container > .row > h2 {
+        padding: 0 10px;
+    }
+}
+
+.probootstrap-card.probootstrap-listing:not(:last-of-type) {
+    margin-bottom: 40px;
+}
+
+.probootstrap-card.probootstrap-listing:last-of-type {
+    margin-bottom: 0;
+}
+
+.probootstrap-listing .probootstrap-card-media,
+.probootstrap-listing .probootstrap-card-text-main {
+    padding: 10px;
+}
+
+.probootstrap-listing .probootstrap-card-text-main .probootstrap-card-heading {
+    margin-top: 0;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.probootstrap-listing .probootstrap-card-text-main .probootstrap-listing-description {
+    height: 100px;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.probootstrap-listing .probootstrap-card-text-main .probootstrap-listing-description p {
+    margin: 0;
+}
+
+.probootstrap-listing .probootstrap-card-text,
+.probootstrap-listing .probootstrap-card-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+    border-left: 1px dotted #e0e0e0;
+}
+
+.probootstrap-listing .probootstrap-card-action a {
+    display: block;
+    text-align: right;
+}
+
+@media (max-width: 991.9px) {
+    .probootstrap-listing .probootstrap-card-text {
+        border-right: 1px dotted #e0e0e0;
+    }
+
+    .probootstrap-listing .probootstrap-card-text,
+    .probootstrap-listing .probootstrap-card-action {
+        border-left: 0;
+    }    
+}
+
+@media (max-width: 768px) {
+    .probootstrap-listing .probootstrap-card-text {
+        border-top: 1px dotted #e0e0e0;
+        padding: 10px;
+    }
+    
+    .probootstrap-listing .probootstrap-card-action {
+        flex-direction: row;
+        border-top: 1px dotted #e0e0e0;
+        align-items: center;
+        border-bottom: 1px dotted #e0e0e0;
+        align-items: stretch;
+        padding: 10px;
+    }
+
+    .probootstrap-listing .probootstrap-card-action a {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        gap: 5px;
+    }
+
+    .probootstrap-listing .probootstrap-card-action a:nth-of-type(2),
+    .probootstrap-listing .probootstrap-card-action a:nth-of-type(3) {
+        border-left: 1px solid #e0e0e0;
+    }
+}
+
