@@ -5,6 +5,7 @@ class User {
     //Properties
     private $userID;
     private $email;
+    private $username;
     private $password;
     private $fullName;
     private $address;
@@ -20,6 +21,9 @@ class User {
     }
     function setEmail($email){
         $this->email = $email;
+    }
+    function setUserName($username){
+        $this->username = $username;
     }
     function setPassword($password){
         $this->password = password_hash($password, PASSWORD_DEFAULT);
@@ -43,6 +47,9 @@ class User {
     //Getters
     function getUserID(){
         return $this->userID;
+    }
+    function getUserName(){
+        return $this->username;
     }
     function getEmail(){
         return $this->email;

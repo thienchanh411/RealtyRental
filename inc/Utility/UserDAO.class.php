@@ -16,12 +16,13 @@ class UserDAO   {
         // and trimmed
 
         // query
-        $sql = "INSERT INTO user (email, password, fullName, address, phoneNumber, role, status)
-        VALUES (:email, :password, :fullName, :address, :phoneNumber, :role, :status)";
+        $sql = "INSERT INTO user (email, username, password, fullName, address, phoneNumber, role, status)
+        VALUES (:email, :username, :password, :fullName, :address, :phoneNumber, :role, :status)";
         self::$database->query($sql);
         // bind
         
         self::$database->bind(":email", trim($user->getEmail()));
+        self::$database->bind(":username", trim($user->getUserName()));
         self::$database->bind(":password", trim($user->getPassword()));
         self::$database->bind(":fullName", trim($user->getFullName()));
         self::$database->bind(":address", trim($user->getAdress()));
@@ -34,13 +35,25 @@ class UserDAO   {
         return self::$database->rowCount();
     }
 
-    // get user detail
-    static function getUser(string $email)  {
+    // get user detail by Email => check email is unique
+    static function getUserByEmail(string $email)  {
         
         // you know the drill
         $sql = "SELECT * FROM user where email = :email";
         self::$database->query($sql);
         self::$database->bind(":email", $email);
+        self::$database->execute();
+        // return the single result query
+        return self::$database->getSingleResult();
+    }
+
+    // get user detail
+    static function getUserByUsername(string $username)  {
+        
+        // you know the drill
+        $sql = "SELECT * FROM user where username = :username";
+        self::$database->query($sql);
+        self::$database->bind(":username", $username);
         self::$database->execute();
         // return the single result query
         return self::$database->getSingleResult();

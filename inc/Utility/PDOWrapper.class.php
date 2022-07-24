@@ -15,7 +15,6 @@ class PDOWrapper  {
     private $stmt;         //Stores our statement instance
     private $pdo = "";          //Store our local instantiation of the PDO driver
 
-
     public function __construct(string $className)  {
 
             //Store the local class name

@@ -10,11 +10,12 @@ class PostingDAO{
     static function createRequestTrans(Posting $posting){
 
         // query
-        $sql = "INSERT INTO transaction (propertyID, postDate, availableDate, monthlyRent, lengthContract)
-        VALUES (:propertyID, :postDate, :availableDate, :monthlyRent, :lengthContract)";
+        $sql = "INSERT INTO posting (propertyID, postDate, postTitle,availableDate, monthlyRent, lengthContract)
+        VALUES (:propertyID, :postDate, :postTitle, :availableDate, :monthlyRent, :lengthContract)";
         self::$database->query($sql);
         // bind
         self::$database->bind(":propertyID", trim($posting->getPropertyID()));
+        self::$database->bind(":postTitle", trim($posting->getPostTitle()));
         self::$database->bind(":postDate", trim($posting->getPostDate()));
         self::$database->bind(":availableDate", trim($posting->getAvailableDate()));
         self::$database->bind(":monthlyRent", trim($posting->getMonthlyRent()));
@@ -73,9 +74,9 @@ class PostingDAO{
     // Owner reject the request
     static function updatePosting(Posting $posting)    {
 
-        // you know the drill
         $sql = "UPDATE posting SET propertyID  = :propertyID,
-                postDate = :postDate, 
+                postDate = :postDate,
+                postTitle = :postTitle, 
                 monthlyRent = :monthlyRent, 
                 availableDate = :availableDate,
                 lengthContract = :lengthContract
@@ -85,6 +86,7 @@ class PostingDAO{
 
         self::$database->bind(":propertyID", $posting->getPropertyID());
         self::$database->bind(":postDate", $posting->getPostDate());
+        self::$database->bind(":postTitle", $posting->getPostTitle());
         self::$database->bind(":monthlyRent", $posting->getMonthlyRent());
         self::$database->bind(":lengthContract", $posting->getLengthContract());
         self::$database->bind(":availableDate", $posting->getAvailableDate());

@@ -8,8 +8,12 @@ class Property{
 	private $city;
 	private $province;	
 	private $type;
-	private $numberOfRoom;
-	private $status; 
+    private $area;
+	private $numberOfBed;
+    private $numberOfBath;
+    private $numberOfGarage;
+	private $picture;
+    private $status; 
 	private $description;
 
     //Getters
@@ -31,8 +35,20 @@ class Property{
     function getType(){
         return $this->type;
     }
-    function getNumberOfRoom(){
-        return $this->numberOfRoom;
+    function getArea(){
+        return $this->area;
+    }
+    function getNumberOfBed(){
+        return $this->numberOfBed;
+    }
+    function getNumberOfBath(){
+        return $this->numberOfBath;
+    }
+    function getNumberOfGarage(){
+        return $this->numberOfGarage;
+    }
+    function getPicture(){
+        return $this->picture;
     }
     function getStatus(){
         return $this->status;
@@ -60,8 +76,20 @@ class Property{
     function setType( $type){
         $this->type = $type;
     }
-    function setNumberOfRoom( $numberOfRoom){
-        $this->numberOfRoom = $numberOfRoom;
+    function setArea( $area){
+        $this->area = $area;
+    }
+    function setNumberOfBed( $numberOfBed){
+        $this->numberOfBed = $numberOfBed;
+    }
+    function setNumberOfBath( $numberOfBath){
+        $this->numberOfBath = $numberOfBath;
+    }
+    function setNumberOfGarage( $numberOfGarage){
+        $this->numberOfGarage = $numberOfGarage;
+    }
+    function setPicture( $picture){
+        $this->picture = $picture;
     }
     function setStatus( $status){
         $this->status = $status;

@@ -3,6 +3,7 @@ Class Posting{
     private $postID;
     private $propertyID;
     private $postDate;
+    private $postTitle;
     private $availableDate;
     private $monthlyRent;
     private $lengthContract;
@@ -13,6 +14,9 @@ Class Posting{
     } 
     function getPostID(){
         return $this->postID;
+    }
+    function getPostTitle(){
+        return $this->postTitle;
     }
     function getPostDate(){
         return $this->postDate;
@@ -34,6 +38,9 @@ Class Posting{
     }
     function setPostDate( $postDate){
         $this->postDate = $postDate;
+    }
+    function setPostTitle( $postTitle){
+        $this->postTitle = $postTitle;
     }
     function setAvailableDate( $availableDate){
         $this->availableDate = $availableDate;
