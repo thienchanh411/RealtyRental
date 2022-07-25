@@ -40,8 +40,8 @@ class Page
                     <nav role="navigation" class="probootstrap-nav hidden-xs">
                         <ul class="probootstrap-main-nav">
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="properties.html">Properties</a></li>
-                            <li class="active"><a href="login.html">Login</a></li>
+                            <li><a href="Team02.Properties.php">Properties</a></li>
+                            <li class="active"><a href="Team02.Login_Register.php">Login</a></li>
                         </ul>
                         <div class="extra-text visible-xs">
                             <a href="#" class="probootstrap-burger-menu"><i></i></a>
@@ -304,19 +304,19 @@ class Page
 			<nav role="navigation" class="probootstrap-nav hidden-xs">
 				<ul class="probootstrap-main-nav">
 					<li><a href="home_Page.html">Home</a></li>
-					<li><a href="properties.html">Properties</a></li>
+					<li><a href="Team02.Properties.php">Properties</a></li>
 					<li class="dropdown">
 						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
 							data-toggle="dropdown" href="#">
 							<img class="avatar" src="img/pngfind.com-privacy-icon-png-4703547.png" alt="avatar">
-							Nhat Tan Vu
+							<?=$_SESSION['loggedin']?>
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<li class="active"><a href="profile.html">Profile</a></li>
+							<li class="active"><a href="Team02.UserProfile.php">Profile</a></li>
 							<li><a href="my_properties.html">My Properties</a></li>
 							<li><a href="#">Add Property</a></li>
-							<li><a href="login.html">Sign out</a></li>
+							<li><a href="Team02.Login_Register.php">Sign out</a></li>
 						</ul>
 					</li>
 
@@ -345,7 +345,7 @@ class Page
 				<div class="col-md-3 padding-0">
 					<div class="probootstrap-card probootstrap-person">
 						<div class="probootstrap-card-media">
-							<img src="img/img/pngfind.com-privacy-icon-png-4703547.png" class="img-responsive"
+							<img src="img/<?=$photoUser?>" class="img-responsive"
 								alt="Free HTML5 Template by uicookies.com">
 						</div>
 						<div class="probootstrap-card-text">
@@ -409,7 +409,7 @@ class Page
 							</div>
 							<div>
 								<div class="col-md-offset-3 col-md-9 text-center">
-									<button class="btn btn-primary">
+									<button class="btn btn-primary" name="editProfile" type="submit" value="editProfile">
                                         Save Profile</button>
 								</div>
 							</div>

@@ -58,6 +58,18 @@ class UserDAO   {
         // return the single result query
         return self::$database->getSingleResult();
     }
+    //This function used to check if the new email is existing or not
+    static function getUserByUsernameAndEmail(string $username, string $newEmail)  {
+        
+        // you know the drill
+        $sql = "SELECT * FROM user where username != :username and email = :email";
+        self::$database->query($sql);
+        self::$database->bind(":username", $username);
+        self::$database->bind(":email", $newEmail);
+        self::$database->execute();
+        // return the single result query
+        return self::$database->getSingleResult();
+    }
 
     // update the current user profile
     
@@ -66,12 +78,13 @@ class UserDAO   {
         // you know the drill
         $sql = "UPDATE user SET password = :password,
                fullName = :fullName,
-               address = :address  
+               address = :address,  
                phoneNumber = :phoneNumber,
                photoUser = :photoUser, 
-               status  = :status
-                WHERE username = :username";
-    //username | email  | password   | fullName  | address | phoneNumber  | photoUser
+               email  = :email
+               WHERE username = :username";
+
+   //username | email  | password   | fullName  | address | phoneNumber  | photoUser
         self::$database->query($sql);
         self::$database->bind(":username", $user->getUserName());
         self::$database->bind(":password", $user->getPassword());
@@ -80,6 +93,8 @@ class UserDAO   {
         self::$database->bind(":phoneNumber", $user->getPhoneNumber());
         self::$database->bind(":photoUser", $user->getPhotoUser());
         self::$database->bind(":email", $user->getEmail());
+
+        self::$database->execute();
         // you may return the rowCount        
         return self::$database->rowCount();
     }
