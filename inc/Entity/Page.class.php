@@ -269,5 +269,195 @@ class Page
             </section>
             <!-- END: section -->
     <?php }
+
+    static function showHeaderProfile(){ ?>
+        <!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RealtyRental &mdash; A real estate rental platform</title>
+	<meta name="description" content="A real estate rental platform">
+	<meta name="keywords" content="real estate, room, house, property, rental">
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles-merged.css">
+	<link rel="stylesheet" href="css/style.min.css">
+	<link rel="stylesheet" href="css/profile.css">
+
+	<!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<!-- START: header -->
+	<header role="banner" class="probootstrap-header">
+		<div class="container">
+			<a href="home_Page.html" class="probootstrap-logo"><img src="img/logo.png"></a>
+
+			<a href="#" class="probootstrap-burger-menu visible-xs"><i></i></a>
+			<div class="mobile-menu-overlay"></div>
+
+			<nav role="navigation" class="probootstrap-nav hidden-xs">
+				<ul class="probootstrap-main-nav">
+					<li><a href="home_Page.html">Home</a></li>
+					<li><a href="properties.html">Properties</a></li>
+					<li class="dropdown">
+						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
+							data-toggle="dropdown" href="#">
+							<img class="avatar" src="img/pngfind.com-privacy-icon-png-4703547.png" alt="avatar">
+							Nhat Tan Vu
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<li class="active"><a href="profile.html">Profile</a></li>
+							<li><a href="my_properties.html">My Properties</a></li>
+							<li><a href="#">Add Property</a></li>
+							<li><a href="login.html">Sign out</a></li>
+						</ul>
+					</li>
+
+				</ul>
+				<div class="extra-text visible-xs">
+					<a href="#" class="probootstrap-burger-menu"><i></i></a>
+					<h5>About RealtyRental</h5>
+					<p>A real estate rental platform and a team project for Douglas College course
+						CSIS 3280, "Web Based Scripting"</p>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!-- END: header -->
+    <?php }
+
+    static function showEditFormProfile(User $user){
+        
+        if($user->getPhotoUser() != null){
+            $photoUser = $user->getPhotoUser();
+        }else $photoUser = "pngfind.com-privacy-icon-png-4703547.png";
+    ?>
+    <section class="probootstrap-section main-section">
+		<div class="container">
+			<div class="row equal">
+				<div class="col-md-3 padding-0">
+					<div class="probootstrap-card probootstrap-person">
+						<div class="probootstrap-card-media">
+							<img src="img/img/pngfind.com-privacy-icon-png-4703547.png" class="img-responsive"
+								alt="Free HTML5 Template by uicookies.com">
+						</div>
+						<div class="probootstrap-card-text">
+							<h2 class="probootstrap-card-heading mb0"><?=$user->getFullName()?></h2>
+							<hr />
+							<div>
+								<p><?=$user->getEmail()?></p>
+								<p><?=$user->getAdress()?></p>
+								<p><?=$user->getPhoneNumber()?></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9 padding-0">
+					<div class="probootstrap-card profile-detail">
+						<form class="form-horizontal" method="post">
+							<div>
+								<h2>Profile Settings</h2>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="photo">Photo</label>
+									<div class="col-md-9">
+										<input type="file" name="photo" id="photo" class="form-control" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="password">New password</label>
+									<div class="col-md-9">
+										<input type="password" name="password" id="password" required
+											class="form-control" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="fullname">Full name</label>
+									<div class="col-md-9">
+										<input type="text" name="fullname" id="fullname" required class="form-control"
+											value="<?=$user->getFullName()?>" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="email">Email</label>
+									<div class="col-md-9">
+										<input type="email" name="email" id="email" required class="form-control"
+											value="<?=$user->getEmail()?>" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="address">Address</label>
+									<div class="col-md-9">
+										<input type="text" name="address" id="address" required class="form-control"
+											value="<?=$user->getAdress()?>" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="phone">Phone</label>
+									<div class="col-md-9">
+										<input type="tel" name="phone" id="phone" required
+											pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control"
+											value="<?=$user->getPhoneNumber()?>">
+									</div>
+								</div>
+							</div>
+							<div>
+								<div class="col-md-offset-3 col-md-9 text-center">
+									<button class="btn btn-primary">
+                                        Save Profile</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+    <?php
+    
+    }
+
+    static function showFooterUserProfile(){ ?>
+    <footer class="probootstrap-footer probootstrap-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="probootstrap-footer-widget">
+						<h4 class="heading">About RealtyRental</h4>
+						<p>A real estate rental platform and a team project for Douglas College
+							course CSIS 3280, "Web Based Scripting"</p>
+						<p><a href="https://www.douglascollege.ca/course/csis-3280">Learn more about the course...</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row copyright">
+				<div class="col-xs-12">
+					<div class="probootstrap-footer-widget">
+						<p>&copy; 2017 <a href="https://uicookies.com/">uiCookies:Haus</a>. Designed by <a
+								href="https://uicookies.com/">uicookies.com</a> <br> Demo Photos from <a
+								href="https://pixabay.com/">Pixabay</a> &amp; <a
+								href="https://unsplash.com/">Unsplash</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="js/scripts.min.js"></script>
+	<script src="js/main.min.js"></script>
+
+</body>
+
+</html>
+    <?php }
 }
 ?>

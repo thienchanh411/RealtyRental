@@ -61,14 +61,12 @@ if(!empty($_POST)){
 
         //Verify the password with the posted data
         $errorAlert = "<script>alert('Wrong username or password')</script>";
-    if(!$verifiedUser){       
-        echo $errorAlert;
-    }else if($verifiedUser->verifyPassword($_POST['password'])){
+    if($verifiedUser && $verifiedUser->getStatus()=="active" && $verifiedUser->verifyPassword($_POST['password'])){       
         session_start();
         $_SESSION['loggedin'] = $verifiedUser->getUserName();
-        header("Location: Team02.Properties.php");
+        header("Location: Team02.UserProfile.php");
         exit;
-    } else echo $errorAlert;
+    }else echo $errorAlert;
     }
     
 }

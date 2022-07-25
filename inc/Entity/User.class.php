@@ -10,6 +10,7 @@ class User {
     private $fullName;
     private $address;
     private $phoneNumber;
+    private $photoUser;
     private $role;
     private $status;
 
@@ -37,6 +38,9 @@ class User {
     function setPhoneNumber($phoneNumber){
         $this->phoneNumber = $phoneNumber;
     }
+    function setPhotoUser($photoUser){
+        $this->photoUser = $photoUser;
+    }
     function setRole($role){
         $this->role = $role;
     }
@@ -62,6 +66,9 @@ class User {
     }
     function getAdress(){
         return $this->address;
+    }
+    function getPhotoUser(){
+        return $this->photoUser;
     }
     function getPhoneNumber(){
         return $this->phoneNumber;

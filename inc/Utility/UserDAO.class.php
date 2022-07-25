@@ -60,24 +60,41 @@ class UserDAO   {
     }
 
     // update the current user profile
-    // certainly you don't have the form to facilitate this
-    // so, it is not needed in our app, but hey.. more practice is better!
+    
     static function updateUser(User $user)    {
 
         // you know the drill
         $sql = "UPDATE user SET password = :password,
                fullName = :fullName,
                address = :address  
-               phoneNumber = :phoneNumber, 
+               phoneNumber = :phoneNumber,
+               photoUser = :photoUser, 
                status  = :status
-                WHERE email = :email";
+                WHERE username = :username";
+    //username | email  | password   | fullName  | address | phoneNumber  | photoUser
         self::$database->query($sql);
+        self::$database->bind(":username", $user->getUserName());
         self::$database->bind(":password", $user->getPassword());
         self::$database->bind(":fullName", $user->getFullName());
         self::$database->bind(":address", $user->getAdress());
         self::$database->bind(":phoneNumber", $user->getPhoneNumber());
-        self::$database->bind(":status", $user->getStatus());
+        self::$database->bind(":photoUser", $user->getPhotoUser());
         self::$database->bind(":email", $user->getEmail());
+        // you may return the rowCount        
+        return self::$database->rowCount();
+    }
+
+    static function adminDeleteUser(User $user)    {
+
+        // you know the drill
+        $sql = "UPDATE user SET status = :status,
+              
+                WHERE username = :username";
+    //username | email  | password   | fullName  | address | phoneNumber  | photoUser
+        self::$database->query($sql);
+        self::$database->bind(":username", $user->getUserName());
+        
+        self::$database->bind(":status", "Inactive");
         // you may return the rowCount        
         return self::$database->rowCount();
     }

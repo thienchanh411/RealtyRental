@@ -11,6 +11,7 @@ create table user (
 	fullName VARCHAR(50),
 	address VARCHAR(50),	
 	phoneNumber VARCHAR(15),
+	photoUser VARCHAR(50),
 	role VARCHAR(10),
 	status VARCHAR(20)		
 ) Engine=InnoDB;
