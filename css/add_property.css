@@ -1,0 +1,48 @@
+textarea {
+    resize: none;
+}
+
+.main-section {
+    padding-top: 90px;
+}
+
+@media (min-width: 992px) {
+    .row.equal {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .padding-0 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.probootstrap-section.main-section>.container>.row>div>h2 {
+    line-height: 55px;
+}
+
+@media (max-width: 991.9px) {
+    .probootstrap-section.main-section>.container>.row>div>h2 {
+        padding: 0 10px;
+    }
+}
+
+.add-property {
+    background: #fff;
+    box-shadow: 0 6px 68px -6px rgb(0 0 0 / 9%);
+    padding: 30px;
+}
+
+.add-property form h3 {
+    margin-top: 0;
+}
+
+.add-property form hr+div {
+    margin-bottom: 20px;
+}
+
+.add-property form .control-label {
+    color: #333;
+    font-weight: normal;
+}
