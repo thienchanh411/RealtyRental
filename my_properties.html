@@ -72,7 +72,10 @@
 							</div>
 							<div class="probootstrap-card-text-main col-md-4">
 								<h2 class="probootstrap-card-heading"><a href="#">Spacious, Central Location,
-										Quiet，Douglas, Walmat, Saveon, Restaurants</a></h2>
+										Quiet, Douglas, Walmat, Saveon, Restaurants</a></h2>
+								<div class="probootstrap-listing-location">
+									<i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
+								</div>
 								<div class="probootstrap-listing-description">
 									<p>New Westminster High School(just behind the house)</p>
 									<p>Douglas College: Walking Distance</p>
@@ -85,8 +88,25 @@
 									<p>UBC: 30 minutes driving</p>
 									<p>Bus Stops: #123, #106, #128, #101,</p>
 								</div>
-								<div class="probootstrap-listing-location">
-									<i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
+								<div class="probootstrap-card-extra">
+									<ul>
+										<li>
+											Area
+											<span>2400 m2</span>
+										</li>
+										<li>
+											Beds
+											<span>3</span>
+										</li>
+										<li>
+											Baths
+											<span>2</span>
+										</li>
+										<li>
+											Garages
+											<span>1</span>
+										</li>
+									</ul>
 								</div>
 							</div>
 							<div class="probootstrap-card-text col-md-3">
@@ -101,7 +121,40 @@
 							<div class="probootstrap-card-action col-md-2">
 								<a href="#"><i class="icon-pencil"></i> Edit</a>
 								<a href="#"><i class="icon-bin"></i> Delete</a>
-								<a href="#"><i class="icon-bubbles3"></i> Check Requests</a>
+								<a href="#" onclick="(function(e){
+									$(e.target).closest('.probootstrap-card').find('.manage-bookings').slideToggle();
+									return false;
+								})(arguments[0]);return false;">
+									<div class="manage-bookings-link">
+										<i class="icon-bubbles3"></i>
+										<div>
+											<div>Manage</div>
+											<div>Bookings</div>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="row manage-bookings">
+							<div class="col-md-offset-3 col-md-9">
+								<ul class="timeline">
+									<li class="timeline-item">
+										<p class="time">On 20-Jul-2022, 09:30 AM</p>
+										<div class="content">
+											<span>User <a href="profile.html?action=view&id=2">Nhat Tan Vu</a> booked this property.</span>
+											<a href="bookings.html?action=approve&id=2">Approve</a>
+											<a class="text-danger" href="bookings.html?action=reject&id=2">Reject</a>
+										</div>
+									</li>
+									<li class="timeline-item">
+										<p class="time">On 22-Jul-2022, 11:15 PM</p>
+										<div class="content">
+											<span>User <a href="profile.html?action=view&id=1">Chanh Vo</a> booked this property.</span>
+											<a href="bookings.html?action=approve&id=1">Approve</a>
+											<a class="text-danger" href="bookings.html?action=reject&id=1">Reject</a>
+										</div>
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -113,11 +166,31 @@
 							</div>
 							<div class="probootstrap-card-text-main col-md-4">
 								<h2 class="probootstrap-card-heading"><a href="#">Carmen's Homestay</a></h2>
+								<div class="probootstrap-listing-location">
+									<i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
+								</div>
 								<div class="probootstrap-listing-description">
 									Fun and loving family. Easy to get along with.
 								</div>
-								<div class="probootstrap-listing-location">
-									<i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
+								<div class="probootstrap-card-extra">
+									<ul>
+										<li>
+											Area
+											<span>2400 m2</span>
+										</li>
+										<li>
+											Beds
+											<span>3</span>
+										</li>
+										<li>
+											Baths
+											<span>2</span>
+										</li>
+										<li>
+											Garages
+											<span>1</span>
+										</li>
+									</ul>
 								</div>
 							</div>
 							<div class="probootstrap-card-text col-md-3">
@@ -132,9 +205,42 @@
 							<div class="probootstrap-card-action col-md-2">
 								<a href="#"><i class="icon-pencil"></i> Edit</a>
 								<a href="#"><i class="icon-bin"></i> Delete</a>
-								<a href="#"><i class="icon-bubbles3"></i> Check Requests</a>
+								<a href="#" onclick="(function(e){
+									$(e.target).closest('.probootstrap-card').find('.manage-bookings').slideToggle();
+									return false;
+								})(arguments[0]);return false;">
+									<div class="manage-bookings-link">
+										<i class="icon-bubbles3"></i>
+										<div>
+											<div>Manage</div>
+											<div>Bookings</div>
+										</div>
+									</div>
+								</a>
 							</div>
 						</div>
+						<div class="row manage-bookings">
+							<div class="col-md-offset-3 col-md-9">
+								<ul class="timeline">
+									<li class="timeline-item">
+										<p class="time">On 25-Jul-2022, 11:30 AM</p>
+										<div class="content">
+											<span>User <a href="profile.html?action=view&id=2">Nhat Tan Vu</a> booked this property.</span>
+											<a href="bookings.html?action=approve&id=3">Approve</a>
+											<a class="text-danger" href="bookings.html?action=reject&id=3">Reject</a>
+										</div>
+									</li>
+									<li class="timeline-item">
+										<p class="time">On 25-Jul-2022, 07:15 PM</p>
+										<div class="content">
+											<span>User <a href="profile.html?action=view&id=1">Chanh Vo</a> booked this property.</span>
+											<a href="bookings.html?action=approve&id=4">Approve</a>
+											<a class="text-danger" href="bookings.html?action=reject&id=4">Reject</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>						
 					</div>
 				</div>
 			</div>

@@ -51,6 +51,12 @@
     white-space: nowrap;
 }
 
+.probootstrap-listing .probootstrap-card-text-main .probootstrap-listing-location {
+    font-size: 14px;
+    color: #bdbdbd;
+    margin-bottom: 20px;
+}
+
 .probootstrap-listing .probootstrap-card-text-main .probootstrap-listing-description {
     height: 100px;
     margin-bottom: 10px;
@@ -72,7 +78,7 @@
     justify-content: center;
     padding: 20px;
     gap: 10px;
-    border-left: 1px dotted #e0e0e0;
+    border-left: 1px solid #f0f0f0;
 }
 
 .probootstrap-listing .probootstrap-card-action a {
@@ -80,24 +86,31 @@
     text-align: right;
 }
 
+.probootstrap-listing .probootstrap-card-action .manage-bookings-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
 @media (max-width: 991.9px) {
     .probootstrap-listing .probootstrap-card-text {
-        border-top: 1px dotted #e0e0e0;
+        border-top: 1px solid #f0f0f0;
         padding: 10px;
         border-left: 0;
     }
 
     .probootstrap-listing .probootstrap-card-action {
         flex-direction: row;
-        border-top: 1px dotted #e0e0e0;
+        border-top: 1px solid #f0f0f0;
         align-items: center;
-        border-bottom: 1px dotted #e0e0e0;
         align-items: stretch;
         padding: 10px;
         border-left: 0;
     }
 
-    .probootstrap-listing .probootstrap-card-action a {
+    .probootstrap-listing .probootstrap-card-action a,
+    .probootstrap-listing .probootstrap-card-action .manage-bookings-link {
         flex: 1;
         display: flex;
         align-items: center;
@@ -110,4 +123,57 @@
     .probootstrap-listing .probootstrap-card-action a:nth-of-type(3) {
         border-left: 1px solid #e0e0e0;
     }
+}
+
+.probootstrap-listing .manage-bookings {
+    border-top: 1px solid #f0f0f0;
+    display: none;
+}
+
+.timeline {
+    position: relative;
+    list-style: none;
+    padding: 30px 30px 0 30px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    top: 15px;
+    left: 15px;
+    border-left: 1px solid #e0e0e0;
+    width: 1px;
+}
+
+.timeline .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline .timeline-item:after {
+    position: absolute;
+    display: block;
+    top: 0;
+    background-color: #00bae6;
+    top: 5px;
+    left: -21.5px;
+    border-radius: 50%;
+    height: 13px;
+    width: 13px;
+    content: "";
+}
+
+.timeline .timeline-item p {
+    margin-bottom: 5px;
+}
+
+.timeline .timeline-item .time {
+    font-size: 15px;
+}
+
+.timeline .timeline-item .content {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
