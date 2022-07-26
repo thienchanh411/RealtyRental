@@ -1,0 +1,66 @@
+.main-section {
+    padding-top: 90px;
+}
+
+@media (min-width: 992px) {
+    .row.equal {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .padding-0 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    -webkit-box-shadow: 0 6px 68px -6px rgba(0, 0, 0, .2);
+    box-shadow: 0 6px 68px -6px rgba(0, 0, 0, .2);
+    color: rgba(0, 0, 0, .8);
+}
+
+.statistic .card.total-properties {
+    color: #5cb85c;
+}
+
+.statistic .card.total-users {
+    color: #f0ad4e;
+}
+
+.statistic .card.total-bookings {
+    color: #5bc0de;
+}
+
+.statistic .card .content {
+    display: flex;
+    font-size: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card table thead tr th.action {
+    text-align: center;
+}
+
+.card table tr td,
+.card table tr th {
+    vertical-align: middle;
+}
+
+.card table tr td.action {
+    width: max(100%, 110px);
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.card table .btn {
+    padding: 5px 10px;
+}
+
+.card h2 {
+    margin-top: 20px;
+}

@@ -14,7 +14,7 @@
     }
 }
 
-@media (max-width: 767.9px) {
+@media (max-width: 768px) {
     body>section>div>div>div>h2>span.pull-right {
         float: left !important;
     }
@@ -93,6 +93,10 @@
     gap: 10px;
 }
 
+.probootstrap-listing .probootstrap-card-action .manage-bookings-link>div {
+    text-align: left;
+}
+
 @media (max-width: 991.9px) {
     .probootstrap-listing .probootstrap-card-text {
         border-top: 1px solid #f0f0f0;
@@ -155,13 +159,25 @@
     position: absolute;
     display: block;
     top: 0;
-    background-color: #00bae6;
+    background-color: #e0e0e0;
     top: 5px;
     left: -21.5px;
     border-radius: 50%;
     height: 13px;
     width: 13px;
     content: "";
+}
+
+.timeline .timeline-item.pending:after {
+    background-color: #f0ad4e;
+}
+
+.timeline .timeline-item.approved:after {
+    background-color: #5cb85c;
+}
+
+.timeline .timeline-item.rejected:after {
+    background-color: #d9534f;
 }
 
 .timeline .timeline-item p {

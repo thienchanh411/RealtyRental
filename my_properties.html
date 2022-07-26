@@ -23,15 +23,15 @@
 	<!-- START: header -->
 	<header role="banner" class="probootstrap-header">
 		<div class="container">
-			<a href="home.html" class="probootstrap-logo"><img src="img/logo.png"></a>
+			<a href="homepage.html" class="probootstrap-logo"><img src="img/logo.png"></a>
 
 			<a href="#" class="probootstrap-burger-menu visible-xs"><i></i></a>
 			<div class="mobile-menu-overlay"></div>
 
 			<nav role="navigation" class="probootstrap-nav hidden-xs">
 				<ul class="probootstrap-main-nav">
-					<li><a href="home.html">Home</a></li>
-					<li><a href="properties.html">Properties</a></li>
+					<li><a href="homepage.html">Home</a></li>
+					<li><a href="search.html">Search</a></li>
 					<li class="dropdown">
 						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
 							data-toggle="dropdown" href="#">
@@ -42,7 +42,7 @@
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 							<li><a href="profile.html">Profile</a></li>
 							<li class="active"><a href="my_properties.html">My Properties</a></li>
-							<li><a href="add_property.html">Add Property</a></li>
+							<li><a href="property_detail.html?action=add">Add Property</a></li>
 							<li><a href="login.html">Sign out</a></li>
 						</ul>
 					</li>
@@ -64,14 +64,14 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<h2 class="mb50">My Properties<span class="pull-right"><a class="btn btn-primary"
-								href="add_property.html">Add Property</a></span></h2>
+								href="property_detail.html?action=add">Add Property</a></span><div class="clearfix"></div></h2>
 					<div class="probootstrap-card probootstrap-listing container">
 						<div class="row equal">
 							<div class="probootstrap-card-media col-md-3">
 								<img src="img/slider_1.jpg" class="img-responsive" alt="3 Bed Room Property for Sale">
 							</div>
 							<div class="probootstrap-card-text-main col-md-4">
-								<h2 class="probootstrap-card-heading"><a href="#">Spacious, Central Location,
+								<h2 class="probootstrap-card-heading"><a href="property_detail.html?action=edit&id=1">Spacious, Central Location,
 										Quiet, Douglas, Walmat, Saveon, Restaurants</a></h2>
 								<div class="probootstrap-listing-location">
 									<i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
@@ -119,8 +119,13 @@
 								<div class="probootstrap-listing-contract"><i class="icon-profile"></i> 6 months</div>
 							</div>
 							<div class="probootstrap-card-action col-md-2">
+<<<<<<< HEAD
 									<a href="#" ><i class="icon-pencil"></i> Edit</a>
 									<a href="#"><i class="icon-bin"></i> Delete</a>							
+=======
+								<a href="property_detail.html?action=edit&id=1"><i class="icon-pencil"></i> Edit</a>
+								<a href="property_detail.html?action=delete&id=1"><i class="icon-bin"></i> Delete</a>
+>>>>>>> d7613f7ab9238b517611a95a567d98bcde998f6c
 								<a href="#" onclick="(function(e){
 									$(e.target).closest('.probootstrap-card').find('.manage-bookings').slideToggle();
 									return false;
@@ -131,6 +136,7 @@
 											<div>Manage</div>
 											<div>Bookings</div>
 										</div>
+										<i class="icon-circle-down"></i>
 									</div>
 								</a>
 							</div>
@@ -138,18 +144,16 @@
 						<div class="row manage-bookings">
 							<div class="col-md-offset-3 col-md-9">
 								<ul class="timeline">
-									<li class="timeline-item">
+									<li class="timeline-item rejected">
 										<p class="time">On 20-Jul-2022, 09:30 AM</p>
 										<div class="content">
-											<span>User <a href="profile.html?action=view&id=2">Nhat Tan Vu</a> booked this property.</span>
-											<a href="bookings.html?action=approve&id=2">Approve</a>
-											<a class="text-danger" href="bookings.html?action=reject&id=2">Reject</a>
+											<span>User <a target="_blank" href="profile.html?action=view&id=2">Nhat Tan Vu</a> booked this property.</span>
 										</div>
 									</li>
-									<li class="timeline-item">
+									<li class="timeline-item pending">
 										<p class="time">On 22-Jul-2022, 11:15 PM</p>
 										<div class="content">
-											<span>User <a href="profile.html?action=view&id=1">Chanh Vo</a> booked this property.</span>
+											<span>User <a target="_blank" href="profile.html?action=view&id=1">Chanh Vo</a> booked this property.</span>
 											<a href="bookings.html?action=approve&id=1">Approve</a>
 											<a class="text-danger" href="bookings.html?action=reject&id=1">Reject</a>
 										</div>
@@ -158,14 +162,13 @@
 							</div>
 						</div>
 					</div>
-
 					<div class="probootstrap-card probootstrap-listing container">
 						<div class="row equal">
 							<div class="probootstrap-card-media col-md-3">
 								<img src="img/slider_2.jpg" class="img-responsive" alt="Carmen's Homestay">
 							</div>
 							<div class="probootstrap-card-text-main col-md-4">
-								<h2 class="probootstrap-card-heading"><a href="#">Carmen's Homestay</a></h2>
+								<h2 class="probootstrap-card-heading"><a href="property_detail.html?action=edit&id=2">Carmen's Homestay</a></h2>
 								<div class="probootstrap-listing-location">
 									<i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
 								</div>
@@ -203,8 +206,8 @@
 								<div class="probootstrap-listing-contract"><i class="icon-profile"></i> N/A</div>
 							</div>
 							<div class="probootstrap-card-action col-md-2">
-								<a href="#"><i class="icon-pencil"></i> Edit</a>
-								<a href="#"><i class="icon-bin"></i> Delete</a>
+								<a href="property_detail.html?action=edit&id=2"><i class="icon-pencil"></i> Edit</a>
+								<a href="property_detail.html?action=delete&id=2"><i class="icon-bin"></i> Delete</a>
 								<a href="#" onclick="(function(e){
 									$(e.target).closest('.probootstrap-card').find('.manage-bookings').slideToggle();
 									return false;
@@ -215,6 +218,7 @@
 											<div>Manage</div>
 											<div>Bookings</div>
 										</div>
+										<i class="icon-circle-down"></i>
 									</div>
 								</a>
 							</div>
@@ -225,17 +229,13 @@
 									<li class="timeline-item">
 										<p class="time">On 25-Jul-2022, 11:30 AM</p>
 										<div class="content">
-											<span>User <a href="profile.html?action=view&id=2">Nhat Tan Vu</a> booked this property.</span>
-											<a href="bookings.html?action=approve&id=3">Approve</a>
-											<a class="text-danger" href="bookings.html?action=reject&id=3">Reject</a>
+											<span>User <a target="_blank" href="profile.html?action=view&id=2">Nhat Tan Vu</a> booked this property.</span>
 										</div>
 									</li>
-									<li class="timeline-item">
+									<li class="timeline-item approved">
 										<p class="time">On 25-Jul-2022, 07:15 PM</p>
 										<div class="content">
-											<span>User <a href="profile.html?action=view&id=1">Chanh Vo</a> booked this property.</span>
-											<a href="bookings.html?action=approve&id=4">Approve</a>
-											<a class="text-danger" href="bookings.html?action=reject&id=4">Reject</a>
+											<span>User <a target="_blank" href="profile.html?action=view&id=1">Chanh Vo</a> booked this property.</span>
 										</div>
 									</li>
 								</ul>
