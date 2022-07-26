@@ -270,7 +270,7 @@ class Page
             <!-- END: section -->
     <?php }
 
-    static function showHeaderProfile(){ ?>
+    static function showHeaderProfile(User $user){ ?>
         <!DOCTYPE html>
 <html lang="en">
 
@@ -308,7 +308,7 @@ class Page
 					<li class="dropdown">
 						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
 							data-toggle="dropdown" href="#">
-							<img class="avatar" src="img/pngfind.com-privacy-icon-png-4703547.png" alt="avatar">
+							<img class="avatar" src="img/<?=$user->getPhotoUser()?>" alt="avatar">
 							<?=$_SESSION['loggedin']?>
 							<span class="caret"></span>
 						</a>

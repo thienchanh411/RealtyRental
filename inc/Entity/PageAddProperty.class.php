@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+class PageAddProperty{
+
+    //function show header page Add Property
+    public static function showHeader(User $user){ ?>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -31,17 +36,17 @@
 			<nav role="navigation" class="probootstrap-nav hidden-xs">
 				<ul class="probootstrap-main-nav">
 					<li><a href="home.html">Home</a></li>
-					<li><a href="properties.html">Properties</a></li>
+					<li><a href="Team02.Properties.php">Properties</a></li>
 					<li class="dropdown">
 						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
 							data-toggle="dropdown" href="#">
-							<img class="avatar" src="img/pngfind.com-privacy-icon-png-4703547.png" alt="avatar">
-							Nhat Tan Vu
+							<img class="avatar" src="img/<?=$user->getPhotoUser()?>" alt="avatar">
+							<?=$user->getUserName()?>
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<li><a href="profile.html">Profile</a></li>
-							<li><a href="my_properties.html">My Properties</a></li>
+							<li><a href="Team02.UserProfile.php">Profile</a></li>
+							<li><a href="Team02.MyProperties.php">My Properties</a></li>
 							<li class="active" href="add_property.html"><a href="#">Add Property</a></li>
 							<li><a href="login.html">Sign out</a></li>
 						</ul>
@@ -58,8 +63,11 @@
 		</div>
 	</header>
 	<!-- END: header -->
+    <?php }
 
-	<section class="probootstrap-section main-section">
+    //function show header page Add Property
+    public static function showMainPage(){ ?>
+    <section class="probootstrap-section main-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -188,8 +196,11 @@
 			</div>
 		</div>
 	</section>
+    <?php }
 
-	<footer class="probootstrap-footer probootstrap-bg">
+    //function show header page Add Property
+    public static function showFooter(){ ?>
+    <footer class="probootstrap-footer probootstrap-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -221,3 +232,6 @@
 </body>
 
 </html>
+    <?php }
+}
+?>

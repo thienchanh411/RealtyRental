@@ -17,14 +17,14 @@ if(!empty($_POST)){
         $hasError = 0;
         $errors= "";
         $validStatus = Validate::validateRegisterForm();
-    foreach($validStatus as $status){
-        if($status != null) {
-            $hasError++;
-            $errors .= $status.' ' ;
-        }else {
-            
+        foreach($validStatus as $status){
+            if($status != null) {
+                $hasError++;
+                $errors .= $status.' ' ;
+            }else {
+                
+            }
         }
-    }
     //If has error => display the errors
     if($hasError!=0){
          $errorAlert = '<script>alert("'.$errors.'")</script>';
@@ -44,6 +44,11 @@ if(!empty($_POST)){
         $newUser->setPhoneNumber($_POST['phone']);
         $newUser->setFullName($_POST['fullname']);
         $newUser->setRole("user");
+
+        // if($_POST['fullname'] == "owner"){
+        //     $newUser->setRole("owner");
+        // }else $newUser->setRole("user");
+
         $newUser->setStatus("active");
 
         UserDAO::createUser($newUser);
@@ -64,7 +69,15 @@ if(!empty($_POST)){
     if($verifiedUser && $verifiedUser->getStatus()=="active" && $verifiedUser->verifyPassword($_POST['password'])){       
         session_start();
         $_SESSION['loggedin'] = $verifiedUser->getUserName();
-        header("Location: Team02.UserProfile.php");
+        if($verifiedUser->getRole()=="owner"){
+            header("Location: Team02.MyProperties.php");
+        }
+        if($verifiedUser->getRole()=="user"){
+            header("Location: Team02.HomePage.php");
+        }
+        if($verifiedUser->getRole()=="admin"){
+            header("Location: Team02.Admin.php");
+        }
         exit;
     }else echo $errorAlert;
     }

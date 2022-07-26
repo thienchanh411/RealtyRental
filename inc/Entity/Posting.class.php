@@ -36,11 +36,12 @@ Class Posting{
     function setPropertyID( $propertyID){
         $this->propertyID = $propertyID;
     }
-    function setPostDate( $postDate){
-        $this->postDate = $postDate;
-    }
+    
     function setPostTitle( $postTitle){
         $this->postTitle = $postTitle;
+    }
+    function setPostDate( $postDate){
+        $this->postDate = $postDate;
     }
     function setAvailableDate( $availableDate){
         $this->availableDate = $availableDate;

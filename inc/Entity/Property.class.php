@@ -1,9 +1,17 @@
 <?php
 
-class Property{
-
-    private $propertyID;	
-	private $ownerID;
+class PostingProperty{
+   
+    private $postID;
+    private $ownerID;
+    private $postTitle;
+    private $postDate;
+    
+    private $availableDate;
+    private $monthlyRent;
+    private $lengthContract;
+    
+	
 	private $street;			
 	private $city;
 	private $province;	
@@ -17,11 +25,26 @@ class Property{
 	private $description;
 
     //Getters
-    function getPropertyID(){
-        return $this->propertyID;
+    function getPostID(){
+        return $this->postID;
     } 
     function getOwnerID(){
         return $this->ownerID;
+    }
+    function getPostTitle(){
+        return $this->postTitle;
+    } 
+    function getPostDate(){
+        return $this->postDate;
+    } 
+    function getAvailableDate(){
+        return $this->availableDate;
+    } 
+    function getMonthlyRent(){
+        return $this->monthlyRent;
+    }
+    function getLengthContract(){
+        return $this->lengthContract;
     }
     function getStreet(){
         return $this->street;
@@ -58,12 +81,25 @@ class Property{
     }
 
     //Setters
-    function setPropertyID( $propertyID){
-        $this->propertyID = $propertyID;
-    }
     function setOwnerID( $ownerID){
         $this->ownerID = $ownerID;
     }
+    function setPostTitle( $postTitle){
+        $this->postTitle = $postTitle;
+    }
+    function setPostDate( $postDate){
+        $this->postDate = $postDate;
+    }
+    function setAvailableDate( $availableDate){
+        $this->availableDate = $availableDate;
+    }
+    function setMonthlyRent( $monthlyRent){
+        $this->monthlyRent = $monthlyRent;
+    }
+    function setLengthContract( $lengthContract){
+        $this->lengthContract = $lengthContract;
+    }
+
     function setStreet( $street){
         $this->street = $street;
     }
