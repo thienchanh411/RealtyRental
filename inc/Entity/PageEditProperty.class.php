@@ -234,7 +234,7 @@ class PageEditProperty{
                     <div class="form-group">
                         <div class="col-md-2"></div>
                         <div class="col-md-4">
-                            <input type="file" name="photo" id="photo" required class="form-control" value="'.$photo.'"/>
+                            <input type="file" name="photo" id="photo" class="form-control" value="'.$photo.'"/>
                         </div>
                     </div>
                 </div>';
@@ -252,7 +252,7 @@ class PageEditProperty{
                 echo '<div class="form-group">
                 <label class="col-md-2 control-label" for="city">City</label>
                 <div class="col-md-4">
-                    <input type="text" name="city" id="city" required class="form-control" value'.$city.'/>
+                    <input type="text" name="city" id="city" required class="form-control" value="'.$city.'"/>
                 </div>';
                 //province
                 echo '<label class="col-md-2 control-label" for="province">Province</label>
