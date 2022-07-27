@@ -15,21 +15,23 @@ session_start();
 UserDAO::initialize();
 PropertyDAO::initialize();
 
-if(session_id() != "" && isset($_SESSION['loggedin'])){
+$currentUserName = $currentPhoto = $currentID = '';
 
-    $currentUser = UserDAO::getUserByUsername($_SESSION['loggedin']);
-        
+if(session_id()!='' && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin']){
+    $currentUserName = $_SESSION['loggedin'];
+    $currentPhoto = $_SESSION['photoLogin'];
+    $currentID = $_SESSION['IDloggedin'];
 }else{
-        header("Location: Team02.Login_Register.php");
-       
+    header("Location: Team02.Login_Register.php");
+   
 }
 
 $listPostingProperties = [];
 
-$listPostingProperties = PropertyDAO::getPropertiesOfOwner($currentUser->getUserID());
+$listPostingProperties = PropertyDAO::getPropertiesOfOwner($currentID);
 
 
-PageMyProperties::showHeader($currentUser);
+PageMyProperties::showHeader($currentUserName, $currentPhoto);
 PageMyProperties::showMainPage($listPostingProperties);
 PageMyProperties::showFooter();
 ?>

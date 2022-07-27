@@ -11,9 +11,9 @@ class PropertyDAO   {
     static function createProperty(PostingProperty $property){
 
         // query
-        $sql = "INSERT INTO postingproperty (ownerID, postTitle, postDate, availableDate, lengthContract,
+        $sql = "INSERT INTO postingproperty (ownerID, postTitle, postDate, availableDate, lengthContract, monthlyRent,
                 street, city, province, type, area, numberOfBed, numberOfBath, numberOfGarage, picture, status, description)
-                VALUES (:ownerID, :postTitle, :postDate, :availableDate, :lengthContract,
+                VALUES (:ownerID, :postTitle, :postDate, :availableDate, :lengthContract, :monthlyRent,
                 :street, :city, :province, :type, :area, 
                 :numberOfBed, :numberOfBath, :numberOfGarage, :picture, :status, :description)";
         self::$database->query($sql);
@@ -34,13 +34,13 @@ class PropertyDAO   {
         self::$database->bind(":numberOfBath", trim($property->getNumberOfBath()));
         self::$database->bind(":numberOfGarage", trim($property->getNumberOfGarage()));
         self::$database->bind(":picture", trim($property->getPicture()));
-        self::$database->bind(":status", "Available");
+        self::$database->bind(":status", trim($property->getStatus()));
         self::$database->bind(":description", trim($property->getDescripition()));
         
         // execute
         self::$database->execute();
         // you may return the rowCount
-        return self::$database->rowCount();
+        return self::$database->lastInsertedId();
     }
 
     // get Property detail
@@ -67,14 +67,15 @@ class PropertyDAO   {
     // update the current property information
     static function updateProperty(PostingProperty $property)    {
 
-        $sql = "UPDATE postingproperty SET 
-                postTitle = :postTitle, 
+    
+        $sql = "UPDATE postingproperty SET postTitle = :postTitle, 
                 monthlyRent = :monthlyRent, 
                 availableDate = :availableDate,
-                lengthContract = :lengthContract
+                lengthContract = :lengthContract,
                 street = :street, 
                 city = :city, 
-                province: province, 
+                province = :province, 
+                picture = :picture,
                 type = :type,
                 area = :area, 
                 numberOfBed = :numberOfBed, 
@@ -84,7 +85,7 @@ class PropertyDAO   {
                 description = :description
                 WHERE postID = :postID";
         self::$database->query($sql);
-
+        self::$database->bind(":postID", trim($property->getPostID()));
         self::$database->bind(":postTitle", trim($property->getPostTitle()));
         self::$database->bind(":availableDate", trim($property->getAvailableDate()));
         self::$database->bind(":monthlyRent", trim($property->getMonthlyRent()));
@@ -92,6 +93,7 @@ class PropertyDAO   {
         self::$database->bind(":street", trim($property->getStreet()) );
         self::$database->bind(":city", trim($property->getCity()));
         self::$database->bind(":province", trim($property->getProvince()));
+        self::$database->bind(":picture", trim($property->getPicture()));
         self::$database->bind(":type", trim($property->getType()));
         self::$database->bind(":area", trim($property->getArea()));
         self::$database->bind(":numberOfBed", trim($property->getNumberOfBed()));
@@ -99,7 +101,9 @@ class PropertyDAO   {
         self::$database->bind(":numberOfGarage", trim($property->getNumberOfGarage()));
         self::$database->bind(":status", trim($property->getStatus()));
         self::$database->bind(":description", trim($property->getDescripition()));
-               
+
+        self::$database->execute();
+        
         return self::$database->rowCount();
     }
 

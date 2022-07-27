@@ -2,7 +2,7 @@
 class PageAddProperty{
 
     //function show header page Add Property
-    public static function showHeader(User $user){ ?>
+    public static function showHeader($currentUserName, $currentPhoto){ ?>
     <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +16,7 @@ class PageAddProperty{
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 	<link rel="stylesheet" href="css/styles-merged.css">
 	<link rel="stylesheet" href="css/style.min.css">
-	<link rel="stylesheet" href="css/add_property.css">
+	<link rel="stylesheet" href="css/property_detail.css">
 
 	<!--[if lt IE 9]>
       <script src="js/vendor/html5shiv.min.js"></script>
@@ -40,15 +40,15 @@ class PageAddProperty{
 					<li class="dropdown">
 						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
 							data-toggle="dropdown" href="#">
-							<img class="avatar" src="img/<?=$user->getPhotoUser()?>" alt="avatar">
-							<?=$user->getUserName()?>
+							<img class="avatar" src="img/<?=$currentPhoto?>" alt="avatar">
+							<?=$currentUserName?>
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 							<li><a href="Team02.UserProfile.php">Profile</a></li>
 							<li><a href="Team02.MyProperties.php">My Properties</a></li>
-							<li class="active" href="add_property.html"><a href="#">Add Property</a></li>
-							<li><a href="login.html">Sign out</a></li>
+							<li class="active" href="Team02.AddProperty.php"><a href="#">Add Property</a></li>
+							<li><a href="Team02.Login_Register.php">Sign out</a></li>
 						</ul>
 					</li>
 
@@ -66,14 +66,229 @@ class PageAddProperty{
     <?php }
 
     //function show header page Add Property
-    public static function showMainPage(){ ?>
-    <section class="probootstrap-section main-section">
+    public static function showMainPage($errorInput){ 
+		if(empty($errorInput)){
+			self::showEmptyAddPropForm();
+		}else{
+			$title = $description = $area = $monthlyrent = $rentcontract = $availabledate = "";
+			$bedrooms = $bathrooms = $garages = $photo = $street = $city = $province = "";
+			$Apartment= $House =$Commercial=$Garage=$Lot="";
+			$bed1 = $bed2 = $bed3 = $bed4 = $bed5 = $bed6 = "";
+			$bathroom1 = $bathroom2 = $bathroom3 = $bathroom4 = $bathroom5 = $bathroom6 = "";
+			$garage0 = $garage1 = $garage2 = $garage3 = "";
+
+
+			if($errorInput[0] = 1){
+				$title = $_POST['title'];
+			}
+			if($errorInput[1] == 1){ $description = $_POST['description'];}
+
+			if($errorInput[2] == 1){
+				if($_POST['type'] == "Apartment") $Apartment = "selected";
+				if($_POST['type'] == "House") $House = "selected";
+				if($_POST['type'] == "Commercial") $Commercial = "selected";
+				if($_POST['type'] == "Garage") $Garage = "selected";
+				if($_POST['type'] == "Lot") $Lot = "selected";
+			}
+			if($errorInput[3] == 1){ $area = $_POST['area'];}
+			if($errorInput[4] == 1){ $monthlyrent = $_POST['monthlyrent'];}
+			if($errorInput[5] == 1){ $rentcontract = $_POST['rentcontract'];}
+			if($errorInput[6] == 1){ $availabledate = $_POST['availabledate'];}
+			if($errorInput[7] == 1){ 
+				if($_POST['bedrooms'] == 1) $bed1 = "selected";
+				if($_POST['bedrooms'] == 2) $bed2 = "selected";
+				if($_POST['bedrooms'] == 3) $bed3 = "selected";
+				if($_POST['bedrooms'] == 4) $bed4 = "selected";
+				if($_POST['bedrooms'] == 5) $bed5 = "selected";
+				if($_POST['bedrooms'] == 6) $bed6 = "selected";}
+			if($errorInput[8] == 1){ 
+				if($_POST['bathrooms'] == 1) $bathroom1 = "selected";
+				if($_POST['bathrooms'] == 2) $bathroom2 = "selected";
+				if($_POST['bathrooms'] == 3) $bathroom3 = "selected";
+				if($_POST['bathrooms'] == 4) $bathroom4 = "selected";
+				if($_POST['bathrooms'] == 5) $bathroom5 = "selected";
+				if($_POST['bathrooms'] == 6) $bathroom6 = "selected";}
+			if($errorInput[9] == 1){ 
+				if($_POST['garages'] == 0) $garage0 = "selected";
+				if($_POST['garages'] == 1) $garage1 = "selected";
+				if($_POST['garages'] == 2) $garage2 = "selected";
+				if($_POST['garages'] == 3) $garage3 = "selected";
+				
+			}
+			if($errorInput[10] == 1){ $photo = $_POST['photo'];}
+			if($errorInput[11] == 1){ $street = $_POST['street'];}
+			if($errorInput[12] == 1){ $city = $_POST['city'];}
+			if($errorInput[13] == 1){ $province = $_POST['province'];}
+
+			$displayError = '';
+			foreach($errorInput as $error){
+				if($error !=1) $displayError .= "<li>" . $error . "</li>";
+			}
+			//Title
+			echo '<section class="probootstrap-section main-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<h2 class="mb50">Add Property</h2>
+						<div class="probootstrap-card add-property">
+							<form class="form-horizontal" method="post">
+								<h3>Detailed Information</h3>
+								<hr />
+								<div>
+									<div class="form-group">
+										<label class="col-md-2 control-label" for="title">Title</label>
+										<div class="col-md-10">
+											<input type="text" name="title" id="title" required class="form-control" 
+											value="'.$title.'"/>
+										</div>
+									</div>';
+			//Description
+			echo '<div class="form-group">
+			<label class="col-md-2 control-label" for="description">Description</label>
+			<div class="col-md-10">
+				<textarea name="description" id="description" required class="form-control"
+					rows="4" value="">'.$description.'</textarea>
+			</div>
+			</div>';
+
+			//Type
+			echo '<div class="form-group">
+			<label class="col-md-2 control-label" for="type">Type</label>
+			<div class="col-md-2">
+				<select class="form-control" id="type" name="type">
+					<option value="Apartment" '.$Apartment.'>Apartment</option>
+					<option value="House" '.$House.'>House</option>
+					<option value="Commercial" '.$Commercial.'>Commercial</option>
+					<option value="Garage" '.$Garage.'>Garage</option>
+					<option value="Lot" '.$Lot.'>Lot</option>
+				</select>
+			</div>';
+
+			
+			//area
+			echo '<label class="col-md-2 control-label" for="area">Area</label>
+			<div class="col-md-2">
+				<input type="text" name="area" id="area" required class="form-control" value="'.$area.'"/>
+			</div>
+		</div>';
+
+			//monthlyrent
+			echo '<div class="form-group">
+			<label class="col-md-2 control-label" for="monthlyrent">Monthly Rent</label>
+			<div class="col-md-2">
+				<input type="text" name="monthlyrent" id="monthlyrent" required value="'.$monthlyrent.'"
+					class="form-control" />
+			</div>';
+			//rentcontract
+			echo '<label class="col-md-2 control-label" for="rentcontract">Rent Contract</label>
+			<div class="col-md-2">
+				<input type="text" name="rentcontract" id="rentcontract" class="form-control" value="'.$rentcontract.'"/>
+			</div>';
+			//availabledate
+			echo '<label class="col-md-2 control-label" for="availabledate">Available Date</label>
+			<div class="col-md-2">
+				<input type="date" name="availabledate" id="availabledate" class="form-control" value="'.$availabledate.'"/>
+			</div>
+		</div>';
+			//bedrooms
+			echo '<div class="form-group">
+			<label class="col-md-2 control-label" for="bedrooms">Bedrooms</label>
+			<div class="col-md-2">
+				<select class="form-control" id="bedrooms" name="bedrooms">
+					<option value="1" '.$bed1.'>1</option>
+					<option value="2" '.$bed2.'>2</option>
+					<option value="3" '.$bed3.'>3</option>
+					<option value="4" '.$bed4.'>4</option>
+					<option value="5" '.$bed5.'>5</option>
+					<option value="6" '.$bed6.'>6</option>
+				</select>
+			</div>';
+			//bathrooms
+			echo '<label class="col-md-2 control-label" for="bathrooms">Bathrooms</label>
+			<div class="col-md-2">
+				<select class="form-control" id="bathrooms" name="bathrooms">
+					<option value="1" '.$bathroom1.'>1</option>
+					<option value="2" '.$bathroom2.'>2</option>
+					<option value="3" '.$bathroom3.'>3</option>
+					<option value="4" '.$bathroom4.'>4</option>
+					<option value="5" '.$bathroom5.'>5</option>
+					<option value="6" '.$bathroom6.'>6</option>
+				</select>
+			</div>';
+			//garages
+			echo '<label class="col-md-2 control-label" for="garages">Garages</label>
+			<div class="col-md-2">
+				<select class="form-control" id="garages" name="garages">
+					<option value="0" '.$garage0.'>0</option>
+					<option value="1" '.$garage1.'>1</option>
+					<option value="2" '.$garage2.'>2</option>
+					<option value="3" '.$garage3.'>3</option>
+				</select>
+					</div>
+				</div>
+			</div>';
+			//photo
+			echo '<h3>Media</h3>
+			<hr />
+			<div>
+				<div class="form-group">
+					<div class="col-md-2"></div>
+					<div class="col-md-4">
+						<input type="file" name="photo" id="photo" required class="form-control" value="'.$photo.'"/>
+					</div>
+				</div>
+			</div>';
+			//street
+			echo '<h3>Location</h3>
+			<hr />
+			<div>
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="street">Street</label>
+					<div class="col-md-10">
+						<input type="text" name="street" id="street" required class="form-control" value="'.$street.'"/>
+					</div>
+				</div>';
+			//city
+			echo '<div class="form-group">
+			<label class="col-md-2 control-label" for="city">City</label>
+			<div class="col-md-4">
+				<input type="text" name="city" id="city" required class="form-control" value'.$city.'/>
+			</div>';
+			//province
+			echo '<label class="col-md-2 control-label" for="province">Province</label>
+									<div class="col-md-4">
+										<input type="text" name="province" id="province" required
+											class="form-control" value="'.$province.'"/>
+									</div>
+								</div>
+							</div>';
+			//remain of form
+			echo '<div class="showErrorAddProperty" style="color :red;">
+				<ul>'.$displayError.'</ul>
+			</div>
+			<div class="text-center">
+				<button class="btn btn-primary" name="addProperty" value="addProperty">Submit Property</button>
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+</div>
+</section>';
+
+
+
+		}
+	}
+
+	public static function showEmptyAddPropForm(){
+		echo '<section class="probootstrap-section main-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
 					<h2 class="mb50">Add Property</h2>
 					<div class="probootstrap-card add-property">
-						<form class="form-horizontal">
+						<form class="form-horizontal" method="post">
 							<h3>Detailed Information</h3>
 							<hr />
 							<div>
@@ -162,7 +377,7 @@ class PageAddProperty{
 								<div class="form-group">
 									<div class="col-md-2"></div>
 									<div class="col-md-4">
-										<input type="file" name="photo" id="photo" class="form-control" />
+										<input type="file" name="photo" id="photo" required class="form-control" />
 									</div>
 								</div>
 							</div>
@@ -187,16 +402,19 @@ class PageAddProperty{
 									</div>
 								</div>
 							</div>
+							<div class="showErrorAddProperty">
+
+							</div>
 							<div class="text-center">
-								<button class="btn btn-primary">Submit Property</button>
+								<button class="btn btn-primary" name="addProperty" value="addProperty">Submit Property</button>
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-    <?php }
+	</section>';
+	}
 
     //function show header page Add Property
     public static function showFooter(){ ?>

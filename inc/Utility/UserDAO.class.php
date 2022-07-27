@@ -16,8 +16,8 @@ class UserDAO   {
         // and trimmed
 
         // query
-        $sql = "INSERT INTO user (email, username, password, fullName, address, phoneNumber, role, status)
-        VALUES (:email, :username, :password, :fullName, :address, :phoneNumber, :role, :status)";
+        $sql = "INSERT INTO user (email, username, password, fullName, address, phoneNumber, photoUser, role, status)
+        VALUES (:email, :username, :password, :fullName, :address, :phoneNumber, :photoUser, :role, :status)";
         self::$database->query($sql);
         // bind
         
@@ -27,6 +27,7 @@ class UserDAO   {
         self::$database->bind(":fullName", trim($user->getFullName()));
         self::$database->bind(":address", trim($user->getAdress()));
         self::$database->bind(":phoneNumber", trim($user->getPhoneNumber()));
+        self::$database->bind(":photoUser", trim($user->getPhotoUser()));
         self::$database->bind(":role", trim($user->getRole()));
         self::$database->bind(":status", trim($user->getStatus()));
         // execute

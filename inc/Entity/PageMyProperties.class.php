@@ -2,12 +2,12 @@
 class PageMyProperties{
 
     //function show header page Add Property
-    public static function showHeader(User $user){ ?>
+    public static function showHeader($currentUserName, $currentPhoto){ ?>
     <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
+<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>RealtyRental &mdash; A real estate rental platform</title>
 	<meta name="description" content="A real estate rental platform">
@@ -37,8 +37,8 @@ class PageMyProperties{
 					<li class="dropdown">
 						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
 							data-toggle="dropdown" href="#">
-							<img class="avatar" src="img/<?=$user->getPhotoUser()?>" alt="avatar">
-							<?=$user->getFullName()?>
+							<img class="avatar" src="img/<?=$currentPhoto?>" alt="avatar">
+							<?=$currentUserName?>
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -90,17 +90,7 @@ class PageMyProperties{
 							<i class="icon-location2"></i> <span>'.$property->getStreet().','.$property->getCity()
 							.', ' .$property->getProvince().'</span>
 						</div>
-						<div class="probootstrap-listing-description">
-							<p>New Westminster High School(just behind the house)</p>
-							<p>Douglas College: Walking Distance</p>
-							<p>SFU: 10 minutes driving</p>
-							<p>New Westminster Town Center: 1 block away, with tons of restaurants, stores, Tim
-								Hortons, McDonalds, Starbucks</p>
-							<p>SaveOnFood, Walmart: 10 minutes walking</p>
-							<p>Metrotown: 10 minutes driving</p>
-							<p>Downtown: 25 Minutes driving</p>
-							<p>UBC: 30 minutes driving</p>
-							<p>Bus Stops: #123, #106, #128, #101,</p>
+						<div class="probootstrap-listing-description">'.$property->getDescripition().'
 						</div>
 						<div class="probootstrap-card-extra">
 							<ul>
@@ -150,27 +140,25 @@ class PageMyProperties{
 					</div>
 				</div>
 				<div class="row manage-bookings">
-					<div class="col-md-offset-3 col-md-9">
-						<ul class="timeline">
-							<li class="timeline-item">
-								<p class="time">On 20-Jul-2022, 09:30 AM</p>
-								<div class="content">
-									<span>User <a href="profile.html?action=view&id=2">Nhat Tan Vu</a> booked this property.</span>
-									<a href="bookings.html?action=approve&id=2">Approve</a>
-									<a class="text-danger" href="bookings.html?action=reject&id=2">Reject</a>
-								</div>
-							</li>
-							<li class="timeline-item">
-								<p class="time">On 22-Jul-2022, 11:15 PM</p>
-								<div class="content">
-									<span>User <a href="profile.html?action=view&id=1">Chanh Vo</a> booked this property.</span>
-									<a href="bookings.html?action=approve&id=1">Approve</a>
-									<a class="text-danger" href="bookings.html?action=reject&id=1">Reject</a>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
+							<div class="col-md-offset-3 col-md-9">
+								<ul class="timeline">
+									<li class="timeline-item rejected">
+										<p class="time">On 20-Jul-2022, 09:30 AM</p>
+										<div class="content">
+											<span>User <a target="_blank" href="profile.html?action=view&id=2">Nhat Tan Vu</a> booked this property.</span>
+										</div>
+									</li>
+									<li class="timeline-item pending">
+										<p class="time">On 22-Jul-2022, 11:15 PM</p>
+										<div class="content">
+											<span>User <a target="_blank" href="profile.html?action=view&id=1">Chanh Vo</a> booked this property.</span>
+											<a href="bookings.html?action=approve&id=1">Approve</a>
+											<a class="text-danger" href="bookings.html?action=reject&id=1">Reject</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
 			</div>';
 			}
 		}

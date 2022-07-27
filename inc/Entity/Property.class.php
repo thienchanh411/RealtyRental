@@ -81,6 +81,9 @@ class PostingProperty{
     }
 
     //Setters
+    function setPostID( $postID){
+        $this->postID = $postID;
+    }
     function setOwnerID( $ownerID){
         $this->ownerID = $ownerID;
     }

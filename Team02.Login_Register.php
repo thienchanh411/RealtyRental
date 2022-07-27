@@ -37,12 +37,16 @@ if(!empty($_POST)){
 
         $newUser = new User();
 
+        $defaultPhoto = "pngfind.com-privacy-icon-png-4703547.png";
+
         $newUser->setEmail($_POST['email']);
         $newUser->setPassword($_POST['password']);
         $newUser->setUserName($_POST['username']);
         $newUser->setAddress($_POST['address']);
         $newUser->setPhoneNumber($_POST['phone']);
+        $newUser->setPhotoUser($defaultPhoto);
         $newUser->setFullName($_POST['fullname']);
+
         $newUser->setRole("user");
 
         // if($_POST['fullname'] == "owner"){
@@ -69,6 +73,8 @@ if(!empty($_POST)){
     if($verifiedUser && $verifiedUser->getStatus()=="active" && $verifiedUser->verifyPassword($_POST['password'])){       
         session_start();
         $_SESSION['loggedin'] = $verifiedUser->getUserName();
+        $_SESSION['IDloggedin'] = $verifiedUser->getUserID();
+        $_SESSION['photoLogin'] = $verifiedUser->getPhotoUser();
         if($verifiedUser->getRole()=="owner"){
             header("Location: Team02.MyProperties.php");
         }
