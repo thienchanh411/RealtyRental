@@ -1,21 +1,26 @@
-<!DOCTYPE html>
+<?php
+class PageSearchProperty{
+    //function show header
+    public static function showHeader($currentFullName, $currentPhoto, $loggedIn)
+    { ?>
+        <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RealtyRental &mdash; A real estate rental platform</title>
+    <meta name="description" content="A real estate rental platform">
+    <meta name="keywords" content="real estate, room, house, property, rental">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RealtyRental &mdash; A real estate rental platform</title>
-  <meta name="description" content="A real estate rental platform">
-  <meta name="keywords" content="real estate, room, house, property, rental">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles-merged.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/search.css">
 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles-merged.css">
-  <link rel="stylesheet" href="css/style.min.css">
-
-  <!--[if lt IE 9]>
-      <script src="js/vendor/html5shiv.min.js"></script>
-      <script src="js/vendor/respond.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.min.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
     <![endif]-->
 </head>
 
@@ -26,36 +31,67 @@
 <div class="probootstrap-loader"></div>
 
 <header role="banner" class="probootstrap-header">
-    <div class="container">
-        <a href="homepage.html" class="probootstrap-logo"><img src="img/logo.png"></a>
+		<div class="container">
+			<a href="Team02_HomePage.php" class="probootstrap-logo"><img src="img/logo.png"></a>
 
-        <a href="#" class="probootstrap-burger-menu visible-xs"><i></i></a>
-        <div class="mobile-menu-overlay"></div>
+			<a href="#" class="probootstrap-burger-menu visible-xs"><i></i></a>
+			<div class="mobile-menu-overlay"></div>
 
-        <nav role="navigation" class="probootstrap-nav hidden-xs">
-            <ul class="probootstrap-main-nav">
-                <li class="active"><a href="homepage.html">Home</a></li>
-                <li><a href="search.html">Search</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-            <div class="extra-text visible-xs">
-                <a href="#" class="probootstrap-burger-menu"><i></i></a>
-                <h5>About RealtyRental</h5>
-                <p>A real estate rental platform and a team project for Douglas College course CSIS 3280,
-                    "Web Based Scripting"</p>
-            </div>
-        </nav>
-    </div>
-</header>
+			<nav role="navigation" class="probootstrap-nav hidden-xs">
+
+            <?php
+            if($loggedIn == false){
+                echo '<ul class="probootstrap-main-nav">
+                <li class="active"><a href="Team02.HomePage.php">Home</a></li>
+                <li><a href="Team02.Login_Register.php">Search</a></li>
+                <li><a href="Team02.Login_Register.php">Login</a></li>
+                </ul>';
+            }else{
+                echo '<ul class="probootstrap-main-nav">
+                <li><a href="Team02_HomePage.php">Home</a></li>
+                <li><a href="Team02.SearchProperties.php">Search</a></li>
+                <li class="dropdown">
+                    <a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
+                        data-toggle="dropdown" href="#">
+                        <img class="avatar" src="img/'.$currentPhoto.'" alt="avatar">
+                        '.$currentFullName.'
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a href="Team02.UserProfile.php">Profile</a></li>
+                        <li><a href="Team02.MyProperties.php">My Properties</a></li>
+                        <li class="active" href="Team02.AddProperty.php?action=add"><a href="#">Add Property</a></li>
+                        <li ><a href="'.$_SERVER["PHP_SELF"].'?action=signout">Sign out</a></li>
+                    </ul>
+                </li>
+
+            </ul>';
+            }
+        ?>
+				
+				<div class="extra-text visible-xs">
+					<a href="#" class="probootstrap-burger-menu"><i></i></a>
+					<h5>About RealtyRental</h5>
+					<p>A real estate rental platform and a team project for Douglas College course
+						CSIS 3280, "Web Based Scripting"</p>
+				</div>
+			</nav>
+		</div>
+	</header>
 <!-- END: header -->
+        <?php }
 
-<section class="probootstrap-slider flexslider">
+    //function show header
+    public static function showBodyPage($listAvailableProperties, $loggedIn)
+    { 
+        ?>
+            <section class="probootstrap-slider flexslider2 page-inner">
     <div class="probootstrap-wrap-banner">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
 
-                    <div class="probootstrap-home-search probootstrap-animate">
+                    <div class="probootstrap-home-search">
                         <form action="" method="post">
                             <h2 class="heading">Search your next dream home here</h2>
                             <div class="probootstrap-field-group">
@@ -63,7 +99,7 @@
 
                                     <div class="search-field">
                                         <i class="icon-location2"></i>
-                                        <input type="text" class="form-control"
+                                        <input type="text" class="form-control" name="searchKeyword"
                                                placeholder="Enter address, ZIP code, Neighborhoods">
                                     </div>
                                 </div>
@@ -80,9 +116,9 @@
         </div>
     </div>
     <ul class="slides">
-        <li style="background-image: url(img/slider_1.jpg);" class="overlay"></li>
-        <li style="background-image: url(img/slider_4.jpg);" class="overlay"></li>
-        <li style="background-image: url(img/slider_2.jpg);" class="overlay"></li>
+        <li class="overlay" style="background-image: url(img/slider_1.jpg);"></li>
+        <li class="overlay" style="background-image: url(img/slider_4.jpg);"></li>
+        <li class="overlay" style="background-image: url(img/slider_2.jpg);"></li>
     </ul>
 </section>
 <!-- END: slider  -->
@@ -114,11 +150,8 @@
     </div>
 </div>
 
-<section class="probootstrap-section">
+<section class="probootstrap-section probootstrap-section-lighter">
     <div class="container">
-        <div class="row heading">
-            <h2 class="mt0 mb50 text-center">Featured Listing</h2>
-        </div>
         <div class="row">
             <div class="col-md-4 col-sm-6">
                 <div class="probootstrap-card probootstrap-listing">
@@ -354,78 +387,12 @@
     </div>
 </section>
 <!-- END: section -->
+        <?php }
 
-<section class="probootstrap-section probootstrap-section-lighter">
-    <div class="container">
-        <div class="row heading">
-            <h2 class="mt0 mb50 text-center">Our Services</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 probootstrap-animate">
-                <div class="service text-center">
-                    <div class="icon"><i class="icon-list2"></i></div>
-                    <h2 class="heading">Property Listing</h2>
-                    <p>List property with details, photos and rental prices</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 probootstrap-animate">
-                <div class="service text-center">
-                    <div class="icon"><i class="icon-magnifying-glass"></i></div>
-                    <h2 class="heading">Property Searching</h2>
-                    <p>Search property by price, available date, location and many more</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 probootstrap-animate">
-                <div class="service text-center">
-                    <div class="icon"><i class="icon-checkmark"></i></div>
-                    <h2 class="heading">Property Booking</h2>
-                    <p>Book your favorite property and contact owner for rental</p>
-                </div>
-            </div>
-            <div class="clearfix visible-lg-block visible-md-block"></div>
-        </div>
-    </div>
-</section>
-<!-- END: section -->
-
-<section class="probootstrap-section">
-    <div class="container">
-        <div class="row heading">
-            <h2 class="mt0 mb50 text-center">Our Team</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-3">
-                <div class="probootstrap-card probootstrap-person text-left">
-                    <div class="probootstrap-card-media">
-                        <img src="img/person_1.jpg" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
-                    </div>
-                    <div class="probootstrap-card-text">
-                        <h2 class="probootstrap-card-heading mb0">Vo Thien Chanh</h2>
-                        <p><small>Developer</small></p>
-                        <p><a href="#">View Details</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="probootstrap-card probootstrap-person text-left">
-                    <div class="probootstrap-card-media">
-                        <img src="img/person_2.jpg" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
-                    </div>
-                    <div class="probootstrap-card-text">
-                        <h2 class="probootstrap-card-heading mb0">Vu Nhat Tan</h2>
-                        <p><small>Developer</small></p>
-                        <p><a href="https://www.linkedin.com/in/tanvu/" target="_blank">View Details</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3"></div>
-        </div>
-    </div>
-</section>
-<!-- END: section -->
-
-<footer class="probootstrap-footer probootstrap-bg" style="background-image: url(img/slider_3.jpg)">
+    //function show header
+    public static function showFooter()
+    { ?>
+            <footer class="probootstrap-footer probootstrap-bg" style="background-image: url(img/slider_3.jpg)">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -456,8 +423,10 @@
 
 <script src="js/scripts.min.js"></script>
 <script src="js/main.min.js"></script>
->>>>>>> d7613f7ab9238b517611a95a567d98bcde998f6c
 
 </body>
 
 </html>
+    <?php }
+}
+?>

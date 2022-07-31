@@ -137,7 +137,36 @@ class PostingProperty{
         $this->description = $description;
     }
 
-}
+    public function jsonSerialize()
+    {
+    	
+        
+        // we will use a stdClass        
+        $serializeObj = new stdClass();
+        $serializeObj->postID = $this->getPostID();
+        $serializeObj->ownerID = $this->getOwnerID();//CousreCode is the name of propety in Json
+        $serializeObj->postTitle = $this->getPostTitle();
+        $serializeObj->postDate = $this->getPostDate();
+        $serializeObj->availableDate = $this->getAvailableDate();
+        $serializeObj->monthlyRent = $this->getMonthlyRent();
+        $serializeObj->lengthContract = $this->getLengthContract();
+        $serializeObj->street = $this->getStreet();
+        $serializeObj->city = $this->getCity();
+        $serializeObj->province = $this->getProvince();
+        $serializeObj->type = $this->gettype();
+        $serializeObj->area = $this->getArea();
+        $serializeObj->numberOfBed = $this->getNumberOfBed();
+        $serializeObj->numberOfBath = $this->getNumberOfBath();
+        $serializeObj->numberOfGarage = $this->getNumberOfGarage();
+        $serializeObj->picture = $this->getPicture();
+        $serializeObj->status = $this->getStatus();
+        $serializeObj->description = $this->getDescripition();
 
+
+        return $serializeObj;
+        
+    }
+    
+}
 
 ?>

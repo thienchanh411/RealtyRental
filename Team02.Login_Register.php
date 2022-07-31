@@ -75,11 +75,12 @@ if(!empty($_POST)){
         $_SESSION['loggedin'] = $verifiedUser->getUserName();
         $_SESSION['IDloggedin'] = $verifiedUser->getUserID();
         $_SESSION['photoLogin'] = $verifiedUser->getPhotoUser();
+        $_SESSION['fullNameLoggedin'] = $verifiedUser->getFullName();
         if($verifiedUser->getRole()=="owner"){
             header("Location: Team02.MyProperties.php");
         }
-        if($verifiedUser->getRole()=="user"){
-            header("Location: Team02.HomePage.php");
+        if($verifiedUser->getRole()=='user'){
+            header("Location: Team02.SearchProperties.php");
         }
         if($verifiedUser->getRole()=="admin"){
             header("Location: Team02.Admin.php");

@@ -55,12 +55,41 @@ class PropertyDAO   {
     }
 
     //get posting Properties
-    static function getPostedProperties(){
-        $sql = "SELECT * FROM postingproperty";
+    static function getAllVailableProperties(){
+        $sql = "SELECT * FROM postingproperty where status = 'available'";
 
         self::$database->query($sql);
         self::$database->execute();
         // return the set value
+        return self::$database->getSetResult();
+    }
+
+    // method using for User to find the posted Rooms
+    static function userSearchAvailablePosts(int $userID)  {
+        
+        $sql = "SELECT * FROM postingproperty
+                WHERE ownerID != :ownerID
+                and status = 'available'";
+        self::$database->query($sql);
+        self::$database->bind(":ownerID", $userID);
+        self::$database->execute();
+        // return the set of results query
+        return self::$database->getSetResult();
+    }
+
+    static function userSearchByKeyWord(int $userID, string $keyword)  {
+        
+        $sql = "SELECT * FROM postingproperty
+                WHERE ownerID != :ownerID
+                and status = 'available'
+                and street like '%:keyword%'
+                and city like '%:keyword%'
+                and province like '%:keyword%'";
+        self::$database->query($sql);
+        self::$database->bind(":ownerID", $userID);
+        self::$database->bind(":keyword", $keyword);
+        self::$database->execute();
+        // return the set of results query
         return self::$database->getSetResult();
     }
 

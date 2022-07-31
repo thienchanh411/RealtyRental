@@ -21,4 +21,15 @@ define("LOGFILE", "log/error_log.txt");
 ini_set("log_errors", TRUE);
 ini_set("error_log",LOGFILE);
 
+//Set App Name for page HomePage
+
+# make sure to name it according to the filename of your main controller, without the .php 
+define('APP_NAME_HOMEPAGE', 'Team02_HomePage');
+
+# remember to include the trailing forward slash
+define('BASE_URL', 'http://localhost/team02project/');
+
+// MAY NOT MODIFY THIS URL
+define('API_URL',BASE_URL.'RestAPI_HomePage.php');
+
 ?>

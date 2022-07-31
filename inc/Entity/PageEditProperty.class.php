@@ -2,7 +2,7 @@
 class PageEditProperty{
 
     //function show header page Add Property
-    public static function showHeader($currentUserName, $currentPhoto){ ?>
+    public static function showHeader($currentFullName, $currentPhoto){ ?>
         <!DOCTYPE html>
     <html lang="en">
     
@@ -40,15 +40,15 @@ class PageEditProperty{
 					<li class="dropdown">
 						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
 							data-toggle="dropdown" href="#">
-							<img class="avatar" src="img/pngfind.com-privacy-icon-png-4703547.png" alt="avatar">
-							Nhat Tan Vu
+							<img class="avatar" src="img/<?=$currentPhoto?>" alt="avatar">
+							<?=$currentFullName?>
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<li><a href="profile.html">Profile</a></li>
-							<li><a href="my_properties.html">My Properties</a></li>
-							<li class="active" href="property_detail.html?action=add"><a href="#">Add Property</a></li>
-							<li><a href="login.html">Sign out</a></li>
+                            <li><a href="Team02.UserProfile.php">Profile</a></li>
+							<li><a href="Team02.MyProperties.php">My Properties</a></li>
+							<li class="active" href="Team02.AddProperty.php?action=add"><a href="#">Add Property</a></li>
+							<li><a href="Team02.Login_Register.php">Sign out</a></li>
 						</ul>
 					</li>
 
