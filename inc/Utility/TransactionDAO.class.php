@@ -46,10 +46,23 @@ class TransactionDAO   {
                 where tr.postID = posting.postID 
                 and posting.propertyID = prop.propertyID
                 and prop.ownerID = :ownerID
-                and tr.status = 'Requested'";
+                and tr.status = 'Pending'";
         self::$database->query($sql);
         self::$database->bind(":ownerID", $ownerID);
        
+        self::$database->execute();
+        // return the set of results query
+        return self::$database->getSetResult();
+    }
+
+    static function getTransactionsByPosting(int $postID) {
+        $sql = "SELECT tr.*, user.fullName
+                FROM transaction tr, user
+                where tr.postID = :postID
+                and user.userID = tr.ternantID";
+        self::$database->query($sql);
+        self::$database->bind(":postID", $postID);
+
         self::$database->execute();
         // return the set of results query
         return self::$database->getSetResult();
@@ -74,20 +87,23 @@ class TransactionDAO   {
         // you know the drill
         $sql = "UPDATE transaction SET status  = 'Canceled'
                 WHERE transactionID = :transactionID";
-
+        self::$database->query($sql);
         self::$database->bind(":transactionID", $transactionID);
         // you may return the rowCount        
         return self::$database->rowCount();
     }
 
     // Owner reject the request
-    static function ownerRejectRequest(int $transactionID)    {
+    static function ownerRejectRequest(int $transactionID, $rejectedDate)    {
 
         // you know the drill
-        $sql = "UPDATE transaction SET status  = 'Rejected'
+        $sql = "UPDATE transaction SET status = 'Rejected',
+                rejectedDate = :rejectedDate
                 WHERE transactionID = :transactionID";
-
+        self::$database->query($sql);
         self::$database->bind(":transactionID", $transactionID);
+        self::$database->bind(":rejectedDate", $rejectedDate);
+        self::$database->execute();
         // you may return the rowCount        
         return self::$database->rowCount();
     }
@@ -97,11 +113,12 @@ class TransactionDAO   {
 
         // you know the drill
         $sql = "UPDATE transaction SET status  = 'Approved',
-                approvedDate :approvedDate
+                approvedDate = :approvedDate
                 WHERE transactionID = :transactionID";
-
+        self::$database->query($sql);
         self::$database->bind(":transactionID", $transactionID);
         self::$database->bind(":approvedDate", $approvedDate);
+        self::$database->execute();
         // you may return the rowCount        
         return self::$database->rowCount();
     }

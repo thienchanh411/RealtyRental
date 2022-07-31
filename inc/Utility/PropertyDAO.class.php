@@ -140,7 +140,7 @@ class PropertyDAO   {
     static function getPropertiesOfOwner(int $ownerID)  {
 
         // return the multiple result query 
-        $sql = "SELECT * FROM postingproperty WHERE ownerID = :ownerID and status = 'available'";
+        $sql = "SELECT * FROM postingproperty WHERE ownerID = :ownerID and status != 'deleted'";
         self::$database->query($sql);
         self::$database->bind(":ownerID", $ownerID);
         self::$database->execute();
@@ -151,7 +151,18 @@ class PropertyDAO   {
     static function ownerDeleteProperty(int $postID)  {
 
         // return the multiple result query 
-        $sql = "UPDATE postingproperty SET status = 'unavailable' WHERE postID = :postID";
+        $sql = "UPDATE postingproperty SET status = 'deleted' WHERE postID = :postID";
+        self::$database->query($sql);
+        self::$database->bind(":postID", $postID);
+        self::$database->execute();
+        return self::$database->getSetResult();   
+
+    }
+
+    static function ownerApprovedPropertyBooking(int $postID) {
+
+        // return the multiple result query 
+        $sql = "UPDATE postingproperty SET status = 'booked' WHERE postID = :postID";
         self::$database->query($sql);
         self::$database->bind(":postID", $postID);
         self::$database->execute();
