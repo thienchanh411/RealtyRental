@@ -12,12 +12,12 @@ include_once('inc/Utility/Validate.class.php');
 include_once('inc/Utility/PropertyDAO.class.php');
 include_once('inc/Utility/TransactionDAO.class.php');
 
-session_start();
 UserDAO::initialize();
 PropertyDAO::initialize();
 TransactionDAO::initialize();
 
-$currentUserName = $currentPhoto = $currentID = '';
+session_start();
+$currentUserName = $currentPhoto = $currentID = $currentFullName = '';
 
 if (session_id() != '' && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin']) {
     $currentUserName = $_SESSION['loggedin'];
@@ -45,6 +45,8 @@ for ($i = 0; $i < count($listPostingProperties); $i++) {
     $listPostingProperties[$i]->transactions = TransactionDAO::getTransactionsByPosting($postID);
 }
 
+
 PageMyProperties::showHeader($currentUserName, $currentPhoto);
 PageMyProperties::showMainPage($listPostingProperties);
 PageMyProperties::showFooter();
+

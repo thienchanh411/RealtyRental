@@ -11,14 +11,14 @@ class TransactionDAO   {
     static function createRequestTrans(Transaction $transaction){
 
         // query
-        $sql = "INSERT INTO transaction (ternantID, postID, requestedDate, approvedDate, status)
-        VALUES (:ternantID, :postID, :requestedDate, :approvedDate, :status)";
+        $sql = "INSERT INTO transaction (ternantID, postID, requestedDate, status)
+        VALUES (:ternantID, :postID, :requestedDate, :status)";
         self::$database->query($sql);
         // bind
         self::$database->bind(":ternantID", trim($transaction->getTernantID()));
         self::$database->bind(":postID", trim($transaction->getPostID()));
         self::$database->bind(":requestedDate", trim($transaction->getRequestedDate()));
-        self::$database->bind(":status", "Requested");
+        self::$database->bind(":status", "requested");
         // execute
         self::$database->execute();
         // you may return the rowCount
@@ -29,7 +29,7 @@ class TransactionDAO   {
     static function ternantTrackRequest(int $ternantID)  {
         
         $sql = "SELECT * FROM transaction where ternantID = :ternantID
-                                            and status = 'Requested'";
+                                            and status = 'requested'";
         self::$database->query($sql);
         self::$database->bind(":ternantID", $ternantID);
         //self::$database->bind(":status", $status);
@@ -81,11 +81,27 @@ class TransactionDAO   {
         return self::$database->getSingleResult();
     }
 
+    //function for confirm the new booking
+    static function getConfirmNewBooking(int $ternantID, int $postID)  {
+        
+        $sql =  "SELECT u.fullName, u.phoneNumber, u.email, u.address, p.postTitle 
+                FROM user u, transaction t, postingproperty p 
+                WHERE t.postID = p.postID and p.ownerID = u.userID
+                and t.ternantID = :ternantID and t.postID = :postID";
+        self::$database->query($sql);
+        self::$database->bind(":ternantID", $ternantID);
+        self::$database->bind(":postID", $postID);
+
+        self::$database->execute();
+        // return the single result query
+        return self::$database->getSingleResult();
+    }
+
     // Ternant can cancel the request
     static function userCancelRequest(int $transactionID)    {
 
         // you know the drill
-        $sql = "UPDATE transaction SET status  = 'Canceled'
+        $sql = "UPDATE transaction SET status  = 'canceled'
                 WHERE transactionID = :transactionID";
         self::$database->query($sql);
         self::$database->bind(":transactionID", $transactionID);

@@ -70,22 +70,39 @@ if(!empty($_POST)){
 
         //Verify the password with the posted data
         $errorAlert = "<script>alert('Wrong username or password')</script>";
-    if($verifiedUser && $verifiedUser->getStatus()=="active" && $verifiedUser->verifyPassword($_POST['password'])){       
+    if($verifiedUser && $verifiedUser->getStatus()=="active" 
+        && $verifiedUser->verifyPassword($_POST['password'])){       
         session_start();
         $_SESSION['loggedin'] = $verifiedUser->getUserName();
         $_SESSION['IDloggedin'] = $verifiedUser->getUserID();
         $_SESSION['photoLogin'] = $verifiedUser->getPhotoUser();
         $_SESSION['fullNameLoggedin'] = $verifiedUser->getFullName();
-        if($verifiedUser->getRole()=="owner"){
-            header("Location: Team02.MyProperties.php");
+        switch($verifiedUser->getRole()){
+            case 'owner': 
+                header("Location: Team02.MyProperties.php");
+                exit;
+                break;
+            case 'user': 
+                header("Location: Team02.SearchProperties.php");
+                exit;
+                break;
+            case 'admin': 
+                header("Location: Team02.Admin.php");
+                exit;
+                break;
+
         }
-        if($verifiedUser->getRole()=='user'){
-            header("Location: Team02.SearchProperties.php");
-        }
-        if($verifiedUser->getRole()=="admin"){
-            header("Location: Team02.Admin.php");
-        }
-        exit;
+       // exit;
+        // if($verifiedUser->getRole()=="owner"){
+        //     header("Location: Team02.MyProperties.php");
+        // }
+        // if($verifiedUser->getRole()=='user'){
+        //     header("Location: Team02.SearchProperties.php");
+        // }
+        // if($verifiedUser->getRole()=="admin"){
+        //     header("Location: Team02.Admin.php");
+        // }
+        // exit;
     }else echo $errorAlert;
     }
     

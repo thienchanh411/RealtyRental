@@ -82,12 +82,13 @@ class PropertyDAO   {
         $sql = "SELECT * FROM postingproperty
                 WHERE ownerID != :ownerID
                 and status = 'available'
-                and street like '%:keyword%'
-                and city like '%:keyword%'
-                and province like '%:keyword%'";
+                and (street like :keyword
+                or city like :keyword
+                or province like :keyword)";
+               
         self::$database->query($sql);
         self::$database->bind(":ownerID", $userID);
-        self::$database->bind(":keyword", $keyword);
+        self::$database->bind(":keyword", "%".$keyword."%");
         self::$database->execute();
         // return the set of results query
         return self::$database->getSetResult();

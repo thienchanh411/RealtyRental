@@ -61,7 +61,7 @@ class PageSearchProperty{
                         <li><a href="Team02.UserProfile.php">Profile</a></li>
                         <li><a href="Team02.MyProperties.php">My Properties</a></li>
                         <li class="active" href="Team02.AddProperty.php?action=add"><a href="#">Add Property</a></li>
-                        <li ><a href="'.$_SERVER["PHP_SELF"].'?action=signout">Sign out</a></li>
+                        <li ><a href="?action=signout">Sign out</a></li>
                     </ul>
                 </li>
 
@@ -82,7 +82,7 @@ class PageSearchProperty{
         <?php }
 
     //function show header
-    public static function showBodyPage($listAvailableProperties, $loggedIn)
+    public static function showBodyPage($listAvailableProperties, $currentID)
     { 
         ?>
             <section class="probootstrap-slider flexslider2 page-inner">
@@ -103,7 +103,7 @@ class PageSearchProperty{
                                                placeholder="Enter address, ZIP code, Neighborhoods">
                                     </div>
                                 </div>
-                                <button class="btn btn-success" type="submit"><i class="icon-magnifying-glass t2"></i>
+                                <button class="btn btn-success" type="submit" name="search" value="search"><i class="icon-magnifying-glass t2"></i>
                                     Start
                                     Search
                                 </button>
@@ -123,11 +123,12 @@ class PageSearchProperty{
 </section>
 <!-- END: slider  -->
 
+
 <!-- The modal -->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <!--<div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -145,244 +146,75 @@ class PageSearchProperty{
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+            </div> 
         </div>
-    </div>
+    </div>-->
 </div>
 
 <section class="probootstrap-section probootstrap-section-lighter">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <div class="probootstrap-card probootstrap-listing">
-                    <div class="probootstrap-card-media">
-                        <img src="img/slider_1.jpg" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
-                        <a href="#" class="probootstrap-love" data-toggle="modal" data-target="#modal">
-                            <i class="icon-heart"></i>
-                        </a>
-                    </div>
-                    <div class="probootstrap-card-text">
-                        <h2 class="probootstrap-card-heading"><a href="#">3 Bed Room Property for Sale</a></h2>
-                        <div class="probootstrap-listing-location">
-                            <i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
+
+        <?php
+            if(isset($listAvailableProperties)){
+                foreach($listAvailableProperties as $property){
+                    echo '<div class="col-md-4 col-sm-6">
+                    <div class="probootstrap-card probootstrap-listing">
+                        <div class="probootstrap-card-media">
+                            <img src="img/'.$property->getPicture().'" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
+                            
+                            <a href="'.$_SERVER["PHP_SELF"].'?action=booking&postID='.$property->getPostID().'&ternantID='.$currentID.'" 
+                            class="probootstrap-love" data-toggle="modal" data-target="#modal">
+                                <i class="icon-heart"></i>
+                            </a>
+                            
                         </div>
-                        <div class="probootstrap-listing-price"><strong>$ 1,121,000</strong> / month</div>
-                    </div>
-                    <div class="probootstrap-card-extra">
-                        <ul>
-                            <li>
-                                Area
-                                <span>2400 m2</span>
-                            </li>
-                            <li>
-                                Beds
-                                <span>3</span>
-                            </li>
-                            <li>
-                                Baths
-                                <span>2</span>
-                            </li>
-                            <li>
-                                Garages
-                                <span>1</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- END listing -->
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="probootstrap-card probootstrap-listing">
-                    <div class="probootstrap-card-media">
-                        <img src="img/slider_2.jpg" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
-                        <a href="#" class="probootstrap-love" data-toggle="modal" data-target="#modal">
-                            <i class="icon-heart"></i>
-                        </a>
-                    </div>
-                    <div class="probootstrap-card-text">
-                        <h2 class="probootstrap-card-heading"><a href="#">3 Bed Room Property for Sale</a></h2>
-                        <div class="probootstrap-listing-location">
-                            <i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
+                        <div class="probootstrap-card-text">
+                            <h2 class="probootstrap-card-heading"><a href="#">'.$property->getPostTitle().'</a></h2>
+                            <div class="probootstrap-listing-location">
+                                <i class="icon-location2"></i> 
+                                <span>'.$property->getStreet().', '.$property->getCity().', '.$property->getProvince().'</span>
+                            </div>
+                            <div class="probootstrap-listing-price"><strong>$ '.$property->getMonthlyRent().'</strong> / month</div>
                         </div>
-                        <div class="probootstrap-listing-price"><strong>$ 250,000</strong> / month</div>
-                    </div>
-                    <div class="probootstrap-card-extra">
-                        <ul>
-                            <li>
-                                Area
-                                <span>2400 m2</span>
-                            </li>
-                            <li>
-                                Beds
-                                <span>3</span>
-                            </li>
-                            <li>
-                                Baths
-                                <span>2</span>
-                            </li>
-                            <li>
-                                Garages
-                                <span>1</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- END listing -->
-            </div>
-            <div class="clearfix visible-sm-block"></div>
-            <div class="col-md-4 col-sm-6">
-                <div class="probootstrap-card probootstrap-listing">
-                    <div class="probootstrap-card-media">
-                        <img src="img/slider_3.jpg" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
-                        <a href="#" class="probootstrap-love" data-toggle="modal" data-target="#modal">
-                            <i class="icon-heart"></i>
-                        </a>
-                    </div>
-                    <div class="probootstrap-card-text">
-                        <h2 class="probootstrap-card-heading"><a href="#">3 Bed Room Property for Sale</a></h2>
-                        <div class="probootstrap-listing-location">
-                            <i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
+                        <div class="probootstrap-card-extra">
+                            <ul>
+                                <li>
+                                    Area
+                                    <span>'.$property->getArea().' m2</span>
+                                </li>
+                                <li>
+                                    Beds
+                                    <span>'.$property->getNumberOfBed().'</span>
+                                </li>
+                                <li>
+                                    Baths
+                                    <span>'.$property->getNumberOfBath().'</span>
+                                </li>
+                                <li>
+                                    Garages
+                                    <span>'.$property->getNumberOfGarage().'</span>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="probootstrap-listing-price"><strong>$ 60,000</strong> / month</div>
                     </div>
-                    <div class="probootstrap-card-extra">
-                        <ul>
-                            <li>
-                                Area
-                                <span>2400 m2</span>
-                            </li>
-                            <li>
-                                Beds
-                                <span>3</span>
-                            </li>
-                            <li>
-                                Baths
-                                <span>2</span>
-                            </li>
-                            <li>
-                                Garages
-                                <span>1</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- END listing -->
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="probootstrap-card probootstrap-listing">
-                    <div class="probootstrap-card-media">
-                        <img src="img/slider_4.jpg" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
-                        <a href="#" class="probootstrap-love" data-toggle="modal" data-target="#modal">
-                            <i class="icon-heart"></i>
-                        </a>
-                    </div>
-                    <div class="probootstrap-card-text">
-                        <h2 class="probootstrap-card-heading"><a href="#">3 Bed Room Property for Sale</a></h2>
-                        <div class="probootstrap-listing-location">
-                            <i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
-                        </div>
-                        <div class="probootstrap-listing-price"><strong>$ 125,000</strong> / month</div>
-                    </div>
-                    <div class="probootstrap-card-extra">
-                        <ul>
-                            <li>
-                                Area
-                                <span>2400 m2</span>
-                            </li>
-                            <li>
-                                Beds
-                                <span>3</span>
-                            </li>
-                            <li>
-                                Baths
-                                <span>2</span>
-                            </li>
-                            <li>
-                                Garages
-                                <span>1</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- END listing -->
-            </div>
-            <div class="clearfix visible-sm-block"></div>
-            <div class="col-md-4 col-sm-6">
-                <div class="probootstrap-card probootstrap-listing">
-                    <div class="probootstrap-card-media">
-                        <img src="img/slider_2.jpg" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
-                        <a href="#" class="probootstrap-love" data-toggle="modal" data-target="#modal">
-                            <i class="icon-heart"></i>
-                        </a>
-                    </div>
-                    <div class="probootstrap-card-text">
-                        <h2 class="probootstrap-card-heading"><a href="#">3 Bed Room Property for Sale</a></h2>
-                        <div class="probootstrap-listing-location">
-                            <i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
-                        </div>
-                        <div class="probootstrap-listing-price"><strong>$ 125,000</strong> / month</div>
-                    </div>
-                    <div class="probootstrap-card-extra">
-                        <ul>
-                            <li>
-                                Area
-                                <span>2400 m2</span>
-                            </li>
-                            <li>
-                                Beds
-                                <span>3</span>
-                            </li>
-                            <li>
-                                Baths
-                                <span>2</span>
-                            </li>
-                            <li>
-                                Garages
-                                <span>1</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- END listing -->
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="probootstrap-card probootstrap-listing">
-                    <div class="probootstrap-card-media">
-                        <img src="img/slider_1.jpg" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
-                        <a href="#" class="probootstrap-love" data-toggle="modal" data-target="#modal">
-                            <i class="icon-heart"></i>
-                        </a>
-                    </div>
-                    <div class="probootstrap-card-text">
-                        <h2 class="probootstrap-card-heading"><a href="#">3 Bed Room Property for Sale</a></h2>
-                        <div class="probootstrap-listing-location">
-                            <i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
-                        </div>
-                        <div class="probootstrap-listing-price"><strong>$ 125,000</strong> / month</div>
-                    </div>
-                    <div class="probootstrap-card-extra">
-                        <ul>
-                            <li>
-                                Area
-                                <span>2400 m2</span>
-                            </li>
-                            <li>
-                                Beds
-                                <span>3</span>
-                            </li>
-                            <li>
-                                Baths
-                                <span>2</span>
-                            </li>
-                            <li>
-                                Garages
-                                <span>1</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- END listing -->
-            </div>
+                    <!-- END listing -->
+                </div>';
+                }
+            }
+
+        ?>
+
+
+            
+
+
+
+            
+        
+        
+        
+        
         </div>
     </div>
 </section>
