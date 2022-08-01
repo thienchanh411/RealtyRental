@@ -9,13 +9,12 @@ include_once('inc/Entity/Property.class.php');
 include_once('inc/Utility/PDOWrapper.class.php');
 include_once('inc/Utility/UserDAO.class.php');
 include_once('inc/Utility/ValidateProperty.class.php');
-include_once('inc/Utility/PostingDAO.class.php');
 include_once('inc/Utility/PropertyDAO.class.php');
 session_start();
 
 $currentUserName = $currentPhoto = $currentID = '';
 
-if(session_id()!='' && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin']){
+if(session_id()!='' && isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin']){
     $currentUserName = $_SESSION['loggedin'];
     $currentPhoto = $_SESSION['photoLogin'];
     $currentID = $_SESSION['IDloggedin'];

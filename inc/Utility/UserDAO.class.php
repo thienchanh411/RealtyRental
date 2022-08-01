@@ -100,17 +100,15 @@ class UserDAO   {
         return self::$database->rowCount();
     }
 
-    static function adminDeleteUser(User $user)    {
+    static function adminDeleteUser($userID)    {
 
         // you know the drill
-        $sql = "UPDATE user SET status = :status,
-              
-                WHERE username = :username";
-    //username | email  | password   | fullName  | address | phoneNumber  | photoUser
+        $sql = "UPDATE user SET status = :status
+                WHERE userID = :userID";
         self::$database->query($sql);
-        self::$database->bind(":username", $user->getUserName());
-        
-        self::$database->bind(":status", "Inactive");
+        self::$database->bind(":userID", $userID);
+        self::$database->bind(":status", "inactive");
+        self::$database->execute();
         // you may return the rowCount        
         return self::$database->rowCount();
     }

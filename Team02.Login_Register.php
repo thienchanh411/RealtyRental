@@ -9,7 +9,7 @@ include_once('inc/Utility/Validate.class.php');
 
 session_start();
 
-if (session_id() != '' && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin']
+if (session_id() != '' && isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin']
     && $_SESSION['fullNameLoggedin']) {
         unset($_SESSION['loggedin']);
         unset($_SESSION['IDloggedin']);
@@ -88,6 +88,7 @@ if(!empty($_POST)){
         $_SESSION['IDloggedin'] = $verifiedUser->getUserID();
         $_SESSION['photoLogin'] = $verifiedUser->getPhotoUser();
         $_SESSION['fullNameLoggedin'] = $verifiedUser->getFullName();
+        $_SESSION['role'] = $verifiedUser->getRole();
         switch($verifiedUser->getRole()){
             case 'owner': 
                 header("Location: Team02.MyProperties.php");

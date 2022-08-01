@@ -19,7 +19,7 @@ TransactionDAO::initialize();
 session_start();
 $currentUserName = $currentPhoto = $currentID = $currentFullName = '';
 
-if (session_id() != '' && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin']
+if (session_id() != '' && isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin']
     && $_SESSION['fullNameLoggedin']) {
     $currentUserName = $_SESSION['loggedin'];
     $currentPhoto = $_SESSION['photoLogin'];

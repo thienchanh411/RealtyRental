@@ -39,7 +39,7 @@ $listAvailableProperties = [];
 
 $currentUserName = $currentPhoto = $currentID = $currentFullName = '';
 //Check user logged in or not by checking SESSION
-if(session_id()!='' && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin'] 
+if(session_id()!='' && isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin'] 
     && $_SESSION['fullNameLoggedin']){
 
     $currentUserName = $_SESSION['loggedin'];

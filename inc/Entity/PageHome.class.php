@@ -138,7 +138,7 @@ class PageHome
     $reDirectPage = "";
 
     if($loggedIn == true){
-        $reDirectPage = "\"#\"";
+        $reDirectPage = "#";
         echo '<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -157,7 +157,7 @@ class PageHome
         </div>
     </div>';
     }else{
-        $reDirectPage = "\"Team02.Login_Register.php\"";
+        $reDirectPage = "Team02.Login_Register.php";
     }
 
 
@@ -182,7 +182,7 @@ class PageHome
                 <div class="probootstrap-card-media">
                     <img src="img/'.$property->getPicture().'" class="img-responsive" alt="Free HTML5 Template by uicookies.com">';
                     if ($loggedIn == true){
-                        echo '<a href='.$reDirectPage.' onClick="(function(e){
+                        echo '<a href="'.$reDirectPage.'" onClick="(function(e){
                             $.getJSON(href=\'' . 'Team02.SearchProperties.php' . '?action=booking&postID=' . $property->getPostID() . '&ternantID=' . $currentID . '\', function(data) {
                                 $(\'#modalBody\').html(\'<p>Congratulations! You have booked property \\\'\' + data.postTitle + \'\\\'.</p>\' +
                                 \'<div>Here\\\'s the owner contact info:</div>\'+
@@ -268,7 +268,7 @@ class PageHome
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 probootstrap-animate">
                     <div class="service text-center">
-                        <div class="icon"><i class="icon-checkmark"></i></div>
+                        <div class="icon"><i class="icon-heart"></i></div>
                         <h2 class="heading">Property Booking</h2>
                         <p>Book your favorite property and contact owner for rental</p>
                     </div>

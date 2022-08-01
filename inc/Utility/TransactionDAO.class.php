@@ -139,6 +139,13 @@ class TransactionDAO   {
         return self::$database->rowCount();
     }
 
-    
+    static function getAllTransactions()  {
+        
+        $sql = "SELECT * FROM transaction";
+        self::$database->query($sql);
+        self::$database->execute();
+        // return the single result query
+        return self::$database->getSetResult();
+    }
 }
 ?>

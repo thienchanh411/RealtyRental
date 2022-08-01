@@ -7,7 +7,6 @@ include_once('inc/Entity/Property.class.php');
 include_once('inc/Utility/PDOWrapper.class.php');
 include_once('inc/Utility/UserDAO.class.php');
 include_once('inc/Utility/Validate.class.php');
-include_once('inc/Utility/PostingDAO.class.php');
 include_once('inc/Utility/PropertyDAO.class.php');
 include_once('inc/Utility/TransactionDAO.class.php');
 
@@ -17,7 +16,6 @@ include_once('inc/Utility/TransactionDAO.class.php');
 //IF NOT THE JSON WILL BE PRINTED AND THE HTML SYSTAX WILL BE ERRORED => 
 //=> CANNOT DISPLAY!!!
 
-include_once('inc/Utility/SimpleRoute.class.php');
 include_once('inc/Utility/RestHomePage.class.php');
 
 //start session
@@ -26,9 +24,6 @@ include_once('inc/Utility/RestHomePage.class.php');
 UserDAO::initialize();
 PropertyDAO::initialize();
 TransactionDAO::initialize();
-
-SimpleRoute::initialize(APP_NAME_HOMEPAGE);
-$route = SimpleRoute::getRouteHomePage();
 
 //
 session_start();

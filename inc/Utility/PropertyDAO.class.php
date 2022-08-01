@@ -148,6 +148,15 @@ class PropertyDAO   {
         return self::$database->getSetResult();   
 
     }
+
+    static function ownerDeleteAllProperties(int $ownerID) {
+        // return the multiple result query 
+        $sql = "UPDATE postingproperty SET status = 'deleted' WHERE ownerID = :ownerID";
+        self::$database->query($sql);
+        self::$database->bind(":ownerID", $ownerID);
+        self::$database->execute();
+        return self::$database->getSetResult();          
+    }
     
     static function ownerDeleteProperty(int $postID)  {
 
@@ -170,5 +179,14 @@ class PropertyDAO   {
         return self::$database->getSetResult();   
 
     }
+
+    static function getAllProperties(){
+        $sql = "SELECT * FROM postingproperty";
+
+        self::$database->query($sql);
+        self::$database->execute();
+        // return the set value
+        return self::$database->getSetResult();
+    }    
 }
 ?>

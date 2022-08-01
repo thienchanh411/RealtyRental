@@ -9,7 +9,6 @@ require_once('inc/Entity/Transaction.class.php');
 require_once('inc/Utility/PDOWrapper.class.php');
 require_once('inc/Utility/TransactionDAO.class.php');
 require_once('inc/Utility/PDOWrapper.class.php');
-require_once('inc/Utility/SimpleRoute.class.php');
 require_once('RestAPI_HomePage.php');
 /*
 PHP --> SQL --> JSON HTTP REQUEST
