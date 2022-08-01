@@ -43,14 +43,14 @@ class PageSearchProperty
                         <?php
                         if ($loggedIn == false) {
                             echo '<ul class="probootstrap-main-nav">
-                <li class="active"><a href="Team02_HomePage.php">Home</a></li>
-                <li><a href="Team02.Login_Register.php">Search</a></li>
+                <li><a href="Team02_HomePage.php">Home</a></li>
+                <li class="active"><a href="Team02.Login_Register.php">Search</a></li>
                 <li><a href="Team02.Login_Register.php">Login</a></li>
                 </ul>';
                         } else {
                             echo '<ul class="probootstrap-main-nav">
                 <li><a href="Team02_HomePage.php">Home</a></li>
-                <li><a href="Team02.SearchProperties.php">Search</a></li>
+                <li class="active"><a href="Team02.SearchProperties.php">Search</a></li>
                 <li class="dropdown">
                     <a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
                         data-toggle="dropdown" href="#">
@@ -61,7 +61,7 @@ class PageSearchProperty
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li><a href="Team02.UserProfile.php">Profile</a></li>
                         <li><a href="Team02.MyProperties.php">My Properties</a></li>
-                        <li class="active" href="Team02.AddProperty.php?action=add"><a href="#">Add Property</a></li>
+                        <li href="Team02.AddProperty.php?action=add"><a href="#">Add Property</a></li>
                         <li ><a href="Team02.Login_Register.php">Sign out</a></li>
                     </ul>
                 </li>
@@ -153,9 +153,14 @@ class PageSearchProperty
                                 echo '<div class="col-md-4 col-sm-6">
                     <div class="probootstrap-card probootstrap-listing">
                         <div class="probootstrap-card-media">
-                            <img src="img/' . $property->getPicture() . '" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
-                            
-                            <a href="#" class="probootstrap-love" onClick="(function(e){
+                            <img src="img/' . $property->getPicture() . '" class="img-responsive" alt="Free HTML5 Template by uicookies.com">';
+
+                                if ($currentID == '') {
+                                    echo '<a href="Team02.Login_Register.php" class="probootstrap-love">
+                                    <i class="icon-heart"></i>
+                                </a>';
+                                } else {
+                                    echo '<a href="#" class="probootstrap-love" onClick="(function(e){
                                 $.getJSON(href=\'' . $_SERVER["PHP_SELF"] . '?action=booking&postID=' . $property->getPostID() . '&ternantID=' . $currentID . '\', function(data) {
                                     $(\'#modalBody\').html(\'<p>Congratulations! You have booked property \\\'\' + data.postTitle + \'\\\'.</p>\' +
                                     \'<div>Here\\\'s the owner contact info:</div>\'+
@@ -170,9 +175,9 @@ class PageSearchProperty
                                 return false;
                             })(arguments[0]);return false;">
                                 <i class="icon-heart"></i>
-                            </a>
-                            
-                        </div>
+                            </a>';
+                                }
+                                echo '</div>
                         <div class="probootstrap-card-text">
                             <h2 class="probootstrap-card-heading"><a href="#">' . $property->getPostTitle() . '</a></h2>
                             <div class="probootstrap-listing-location">
