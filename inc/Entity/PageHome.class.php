@@ -34,7 +34,7 @@ class PageHome
 
 <header role="banner" class="probootstrap-header">
     <div class="container">
-        <a href="Team02.HomePage.php" class="probootstrap-logo"><img src="img/logo.png"></a>
+        <a href="Team02_HomePage.php" class="probootstrap-logo"><img src="img/logo.png"></a>
 
         <a href="#" class="probootstrap-burger-menu visible-xs"><i></i></a>
         <div class="mobile-menu-overlay"></div>
@@ -45,7 +45,7 @@ class PageHome
         <?php
             if($loggedIn== false){
                 echo '<ul class="probootstrap-main-nav">
-                <li class="active"><a href="Team02.HomePage.php">Home</a></li>
+                <li class="active"><a href="Team02_HomePage.php">Home</a></li>
                 <li><a href="Team02.Login_Register.php">Search</a></li>
                 <li><a href="Team02.Login_Register.php">Login</a></li>
                 </ul>';

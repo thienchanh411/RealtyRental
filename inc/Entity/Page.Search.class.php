@@ -43,7 +43,7 @@ class PageSearchProperty
                         <?php
                         if ($loggedIn == false) {
                             echo '<ul class="probootstrap-main-nav">
-                <li class="active"><a href="Team02.HomePage.php">Home</a></li>
+                <li class="active"><a href="Team02_HomePage.php">Home</a></li>
                 <li><a href="Team02.Login_Register.php">Search</a></li>
                 <li><a href="Team02.Login_Register.php">Login</a></li>
                 </ul>';

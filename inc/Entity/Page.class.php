@@ -39,7 +39,7 @@ class Page
 
                     <nav role="navigation" class="probootstrap-nav hidden-xs">
                         <ul class="probootstrap-main-nav">
-                            <li><a href="Team02.HomePage.php">Home</a></li>
+                            <li><a href="Team02_HomePage.php">Home</a></li>
                             <li><a href="Team02.SearchProperty.php">Search</a></li>
                             <li class="active"><a href="Team02.Login_Register.php">Login</a></li>
                         </ul>

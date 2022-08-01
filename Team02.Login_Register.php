@@ -83,7 +83,7 @@ if(!empty($_POST)){
         $errorAlert = "<script>alert('Wrong username or password')</script>";
     if($verifiedUser && $verifiedUser->getStatus()=="active" 
         && $verifiedUser->verifyPassword($_POST['password'])){       
-        session_start();
+        @session_start();
         $_SESSION['loggedin'] = $verifiedUser->getUserName();
         $_SESSION['IDloggedin'] = $verifiedUser->getUserID();
         $_SESSION['photoLogin'] = $verifiedUser->getPhotoUser();

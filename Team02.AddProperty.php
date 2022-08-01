@@ -48,7 +48,7 @@ if(!empty($_POST)){
         $newProperty->setOwnerID($currentID);
         $newProperty->setPostTitle($_POST['title']);
         $newProperty->setPostDate($now->format('Y-m-d'));
-        $newProperty->setAvailableDate($_POST['availabledate']);
+        $newProperty->setAvailableDate($_POST['availabledate'] == "" ? $now->format('Y-m-d') : $_POST['availabledate']);
         $newProperty->setLengthContract($_POST['rentcontract']);
         $newProperty->setMonthlyRent($_POST['monthlyrent']);
         $newProperty->setStreet($_POST['street']);

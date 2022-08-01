@@ -30,15 +30,23 @@ if (session_id() != '' && isset($_SESSION['loggedin']) && $_SESSION['loggedin'] 
     exit;
 }
 
-if (isset($_GET["action"]) && isset($_GET["transactionID"])) {
-    if ($_GET["action"] == "approve") {
-        TransactionDAO::ownerApproveRequest($_GET["transactionID"], gmdate('Y-m-d H:i:s'));
-        $transaction = TransactionDAO::getTransaction($_GET["transactionID"]);
-        PropertyDAO::ownerApprovedPropertyBooking($transaction->getPostID());
-        header("Location: ".$_SERVER['PHP_SELF']);
-    } else if ($_GET["action"] == "reject") {
-        TransactionDAO::ownerRejectRequest($_GET["transactionID"], gmdate('Y-m-d H:i:s'));
-        header("Location: ".$_SERVER['PHP_SELF']);
+if (isset($_GET["action"])) {
+    if (isset($_GET["transactionID"])) {
+        if ($_GET["action"] == "approve") {
+            TransactionDAO::ownerApproveRequest($_GET["transactionID"], gmdate('Y-m-d H:i:s'));
+            $transaction = TransactionDAO::getTransaction($_GET["transactionID"]);
+            PropertyDAO::ownerApprovedPropertyBooking($transaction->getPostID());
+            header("Location: ".$_SERVER['PHP_SELF']);
+        } else if ($_GET["action"] == "reject") {
+            TransactionDAO::ownerRejectRequest($_GET["transactionID"], gmdate('Y-m-d H:i:s'));
+            header("Location: ".$_SERVER['PHP_SELF']);
+        }
+    }
+    else if(isset($_GET["postID"])) {
+        if ($_GET["action"] == "delete") {
+            PropertyDAO::ownerDeleteProperty($_GET["postID"]);
+            header("Location: ".$_SERVER['PHP_SELF']);
+        }
     }
 }
 
