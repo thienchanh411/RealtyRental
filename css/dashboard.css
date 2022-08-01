@@ -51,7 +51,6 @@
 }
 
 .card table tr td.action {
-    width: max(100%, 110px);
     display: flex;
     gap: 10px;
     justify-content: center;
