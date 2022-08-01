@@ -54,11 +54,26 @@ class PropertyDAO   {
         return self::$database->getSingleResult();
     }
 
-    //get posting Properties
+    //get all available Properties
     static function getAllVailableProperties(){
         $sql = "SELECT * FROM postingproperty where status = 'available'";
 
         self::$database->query($sql);
+        self::$database->execute();
+        // return the set value
+        return self::$database->getSetResult();
+    }
+
+    //Function for anonymous user search properties by keyword
+    static function getPropertiesByKeyword(string $keyword){
+        $sql = "SELECT * FROM postingproperty
+                WHERE status = 'available'
+                and (street like :keyword
+                or city like :keyword
+                or province like :keyword)";
+
+        self::$database->query($sql);
+        self::$database->bind(":keyword", "%".$keyword."%");
         self::$database->execute();
         // return the set value
         return self::$database->getSetResult();

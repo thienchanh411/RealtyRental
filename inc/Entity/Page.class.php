@@ -32,7 +32,7 @@ class Page
             <!-- START: header -->
             <header role="banner" class="probootstrap-header">
                 <div class="container">
-                    <a href="index.html" class="probootstrap-logo"><img src="img/logo.png"></a>
+                    <a href="Team02_HomePage.php" class="probootstrap-logo"><img src="img/logo.png"></a>
 
                     <a href="#" class="probootstrap-burger-menu visible-xs"><i></i></a>
                     <div class="mobile-menu-overlay"></div>
@@ -40,7 +40,7 @@ class Page
                     <nav role="navigation" class="probootstrap-nav hidden-xs">
                         <ul class="probootstrap-main-nav">
                             <li><a href="Team02_HomePage.php">Home</a></li>
-                            <li><a href="Team02.SearchProperty.php">Search</a></li>
+                            <li><a href="Team02.SearchProperties.php">Search</a></li>
                             <li class="active"><a href="Team02.Login_Register.php">Login</a></li>
                         </ul>
                         <div class="extra-text visible-xs">
@@ -163,16 +163,16 @@ class Page
 
             <header role="banner" class="probootstrap-header">
                 <div class="container">
-                    <a href="index.html" class="probootstrap-logo"><img src="img/logo.png"></a>
+                    <a href="Team02_HomePage.php" class="probootstrap-logo"><img src="img/logo.png"></a>
 
                     <a href="#" class="probootstrap-burger-menu visible-xs"><i></i></a>
                     <div class="mobile-menu-overlay"></div>
 
                     <nav role="navigation" class="probootstrap-nav hidden-xs">
                         <ul class="probootstrap-main-nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active"><a href="properties.html">Properties</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="Team02_HomePage.php">Home</a></li>
+                            <li class="active"><a href="Team02.SearchProperties.php">Search</a></li>
+                            <li><a href="Team02_HomePage.php">Login</a></li>
                         </ul>
                         <div class="extra-text visible-xs">
                             <a href="#" class="probootstrap-burger-menu"><i></i></a>

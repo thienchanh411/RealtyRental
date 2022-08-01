@@ -48,56 +48,30 @@ if(session_id()!='' && isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && 
     $currentFullName = $_SESSION['fullNameLoggedin'];
     $loggedIn = true;
 
-}else{
-    header("Location: Team02.Login_Register.php");
-    exit;
 }
 
 
 $listAvailableProperties;
 if($loggedIn==true){
     $listAvailableProperties = PropertyDAO::userSearchAvailablePosts($currentID);
+}else{
+    $listAvailableProperties = PropertyDAO::getAllVailableProperties();
 }
 
 //Check if having POST
 if($_POST){
     //CHeck if user click Seach button
-    if($_POST['search'] == "search" && $loggedIn==true){
-            
+    if($_POST['search'] == "search"){
         if($_POST['searchKeyword']){
+            if($loggedIn==true){
+                $listAvailableProperties = PropertyDAO::userSearchByKeyWord($currentID, $_POST['searchKeyword']);
+            }else {
+                $listAvailableProperties = PropertyDAO::getPropertiesByKeyword($_POST['searchKeyword']);
+            }
 
-            $listAvailableProperties = PropertyDAO::userSearchByKeyWord($currentID, $_POST['searchKeyword']);
-            
-            
-        }else{
-            $listAvailableProperties = PropertyDAO::userSearchAvailablePosts($currentID);
         }
-        
-    }else{//If User not loggedin => redirect to login page
-            // header("Location: Team02.Login_Register.php");
-            // exit;
-        }
-}
-
-
-//When user click sign out
-
-if(($_GET)){
-    
-    if(isset($_GET['action']) && $_GET['action'] == "signout"){
-        unset($_SESSION['loggedin']);
-        unset($_SESSION['IDloggedin']);
-        unset($_SESSION['photoLogin']);
-        unset($_SESSION['fullNameLoggedin']);
-        session_destroy();
-        header("Location: Team02.Login_Register.php");
-        exit;
     }
 }
-//
-
-
-
 
 
 PageSearchProperty::showHeader($currentFullName, $currentPhoto, $loggedIn);

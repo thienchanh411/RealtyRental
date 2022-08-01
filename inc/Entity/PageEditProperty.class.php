@@ -28,15 +28,15 @@ class PageEditProperty{
 	<!-- START: header -->
 	<header role="banner" class="probootstrap-header">
 		<div class="container">
-			<a href="homepage.html" class="probootstrap-logo"><img src="img/logo.png"></a>
+			<a href="Team02_HomePage.php" class="probootstrap-logo"><img src="img/logo.png"></a>
 
 			<a href="#" class="probootstrap-burger-menu visible-xs"><i></i></a>
 			<div class="mobile-menu-overlay"></div>
 
 			<nav role="navigation" class="probootstrap-nav hidden-xs">
 				<ul class="probootstrap-main-nav">
-					<li><a href="homepage.html">Home</a></li>
-					<li><a href="search.html">Search</a></li>
+					<li><a href="Team02_HomePage.php">Home</a></li>
+					<li><a href="Team02.SearchProperties.php">Search</a></li>
 					<li class="dropdown">
 						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
 							data-toggle="dropdown" href="#">

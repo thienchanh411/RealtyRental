@@ -46,7 +46,7 @@ class PageHome
             if($loggedIn== false){
                 echo '<ul class="probootstrap-main-nav">
                 <li class="active"><a href="Team02_HomePage.php">Home</a></li>
-                <li><a href="Team02.Login_Register.php">Search</a></li>
+                <li><a href="Team02.SearchProperties.php">Search</a></li>
                 <li><a href="Team02.Login_Register.php">Login</a></li>
                 </ul>';
             }else{
@@ -65,6 +65,7 @@ class PageHome
                         <li><a href="Team02.MyProperties.php">My Properties</a></li>
                         <li class="active" href="Team02.AddProperty.php?action=add"><a href="#">Add Property</a></li>
                         <li ><a href="'.$_SERVER["PHP_SELF"].'?action=signout">Sign out</a></li>
+                        <li ><a href="Team02.Login_Register.php">Sign out</a></li>
                     </ul>
                 </li>
 

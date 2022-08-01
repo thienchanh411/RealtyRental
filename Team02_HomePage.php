@@ -66,28 +66,6 @@ if($_POST){
         
     }
 }
-//When user click sign out
-if(!empty($_GET)){
-    if(isset($_GET['action']) && $_GET['action'] == "signout"){
-        unset($_SESSION['loggedin']);
-        unset($_SESSION['IDloggedin']);
-        unset($_SESSION['photoLogin']);
-        unset($_SESSION['fullNameLoggedin']);
-        session_destroy();
-        header("Location: Team02.Login_Register.php");
-        exit;
-    }
-}
-
-//The commend block work fine when using DAO
-
-// $listAvailableProperties = [];
-
-// if($loggedIn=true){
-//     $listAvailableProperties = PropertyDAO::userSearchAvailablePosts($currentID);
-// }else{
-//     $listAvailableProperties = PropertyDAO::getAllVailableProperties();
-// }
 
 
 $listAvailableProperties = [];

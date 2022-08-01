@@ -62,7 +62,7 @@ class PageSearchProperty
                         <li><a href="Team02.UserProfile.php">Profile</a></li>
                         <li><a href="Team02.MyProperties.php">My Properties</a></li>
                         <li class="active" href="Team02.AddProperty.php?action=add"><a href="#">Add Property</a></li>
-                        <li ><a href="?action=signout">Sign out</a></li>
+                        <li ><a href="Team02.Login_Register.php">Sign out</a></li>
                     </ul>
                 </li>
 

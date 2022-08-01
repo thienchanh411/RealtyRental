@@ -27,7 +27,7 @@ class PageMyProperties
 			<!-- START: header -->
 			<header role="banner" class="probootstrap-header">
 				<div class="container">
-					<a href="home.html" class="probootstrap-logo"><img src="img/logo.png"></a>
+					<a href="Team02_HomePage.php" class="probootstrap-logo"><img src="img/logo.png"></a>
 
 					<a href="#" class="probootstrap-burger-menu visible-xs"><i></i></a>
 					<div class="mobile-menu-overlay"></div>
