@@ -85,7 +85,7 @@ class PageHome
         <?php }
 
     //function show header
-    public static function showBodyPage($listAvailableProperties, $loggedIn)
+    public static function showBodyPage($listAvailableProperties, $loggedIn, $currentID)
     { 
         ?>
             <section class="probootstrap-slider flexslider">
@@ -138,7 +138,7 @@ class PageHome
     $reDirectPage = "";
 
     if($loggedIn == true){
-        $reDirectPage = "#";
+        $reDirectPage = "\"#\"";
         echo '<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -148,15 +148,7 @@ class PageHome
                     </button>
                     <h4 class="modal-title" id="modalLabel">Book Property</h4>
                 </div>
-                <div class="modal-body">
-                    <p>Congratulations! You have booked property "3 Bed Room Property for Sale".</p>
-                    <div>Here is the owner contact info:</div>
-                    <ul>
-                        <li>Full name: Nhat Tan Vu</li>
-                        <li>Email: email@gmail.com</li>
-                        <li>Address: 1234, Some Street, Vancouver, XXX YYY</li>
-                        <li>Phone: 123-456-7890</li>
-                    </ul>
+                <div class="modal-body" id="modalBody">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -165,7 +157,7 @@ class PageHome
         </div>
     </div>';
     }else{
-        $reDirectPage = "Team02.Login_Register.php";
+        $reDirectPage = "\"Team02.Login_Register.php\"";
     }
 
 
@@ -188,11 +180,31 @@ class PageHome
             echo '<div class="col-md-4 col-sm-6">
             <div class="probootstrap-card probootstrap-listing">
                 <div class="probootstrap-card-media">
-                    <img src="img/'.$property->getPicture().'" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
-                    <a href="'.$reDirectPage.'" class="probootstrap-love" data-toggle="modal" data-target="#modal">
+                    <img src="img/'.$property->getPicture().'" class="img-responsive" alt="Free HTML5 Template by uicookies.com">';
+                    if ($loggedIn == true){
+                        echo '<a href='.$reDirectPage.' onClick="(function(e){
+                            $.getJSON(href=\'' . 'Team02.SearchProperties.php' . '?action=booking&postID=' . $property->getPostID() . '&ternantID=' . $currentID . '\', function(data) {
+                                $(\'#modalBody\').html(\'<p>Congratulations! You have booked property \\\'\' + data.postTitle + \'\\\'.</p>\' +
+                                \'<div>Here\\\'s the owner contact info:</div>\'+
+                                \'<ul>\'+
+                                    \'<li>Full name: \' + data.fullName + \'</li>\' +
+                                    \'<li>Email: \' + data.email + \'</li>\' +
+                                    \'<li>Address: \' + data.address + \'</li>\' +
+                                    \'<li>Phone: \' + data.phoneNumber + \'</li>\' +
+                                \'</ul>\');
+                                $(\'#modal\').modal(\'show\');
+                              });
+                            return false;
+                        })(arguments[0]);return false;" class="probootstrap-love">
                         <i class="icon-heart"></i>
-                    </a>
-                </div>
+                    </a>';                        
+                    }
+                    else {
+                        echo '<a href='.$reDirectPage.' class="probootstrap-love">
+                        <i class="icon-heart"></i>
+                    </a>';
+                    }
+                echo '</div>
                 <div class="probootstrap-card-text">
                     <h2 class="probootstrap-card-heading"><a href="#">'.$property->getPostTitle().'</a></h2>
                     <div class="probootstrap-listing-location">

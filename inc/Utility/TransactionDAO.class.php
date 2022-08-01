@@ -18,7 +18,7 @@ class TransactionDAO   {
         self::$database->bind(":ternantID", trim($transaction->getTernantID()));
         self::$database->bind(":postID", trim($transaction->getPostID()));
         self::$database->bind(":requestedDate", trim($transaction->getRequestedDate()));
-        self::$database->bind(":status", "requested");
+        self::$database->bind(":status", "pending");
         // execute
         self::$database->execute();
         // you may return the rowCount
@@ -29,7 +29,7 @@ class TransactionDAO   {
     static function ternantTrackRequest(int $ternantID)  {
         
         $sql = "SELECT * FROM transaction where ternantID = :ternantID
-                                            and status = 'requested'";
+                                            and status = 'pending'";
         self::$database->query($sql);
         self::$database->bind(":ternantID", $ternantID);
         //self::$database->bind(":status", $status);
@@ -46,7 +46,7 @@ class TransactionDAO   {
                 where tr.postID = posting.postID 
                 and posting.propertyID = prop.propertyID
                 and prop.ownerID = :ownerID
-                and tr.status = 'Pending'";
+                and tr.status = 'pending'";
         self::$database->query($sql);
         self::$database->bind(":ownerID", $ownerID);
        
@@ -113,7 +113,7 @@ class TransactionDAO   {
     static function ownerRejectRequest(int $transactionID, $rejectedDate)    {
 
         // you know the drill
-        $sql = "UPDATE transaction SET status = 'Rejected',
+        $sql = "UPDATE transaction SET status  = 'rejected',
                 rejectedDate = :rejectedDate
                 WHERE transactionID = :transactionID";
         self::$database->query($sql);
@@ -128,7 +128,7 @@ class TransactionDAO   {
     static function ownerApproveRequest(int $transactionID, $approvedDate)    {
 
         // you know the drill
-        $sql = "UPDATE transaction SET status  = 'Approved',
+        $sql = "UPDATE transaction SET status  = 'approved',
                 approvedDate = :approvedDate
                 WHERE transactionID = :transactionID";
         self::$database->query($sql);

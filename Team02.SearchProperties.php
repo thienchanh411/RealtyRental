@@ -13,6 +13,26 @@ include_once('inc/Utility/PropertyDAO.class.php');
 
 PropertyDAO::initialize();
 
+if($_GET && isset($_GET['action']) && $_GET['action'] == "booking"){
+    if(isset($_GET['ternantID']) && isset($_GET['postID'])){
+
+        $newBooking = new Transaction();
+
+        $newBooking->setTernantID(($_GET['ternantID']));
+        $newBooking->setPostID(($_GET['postID']));
+        $newBooking->setRequestedDate(gmdate('Y-m-d H:i:s'));
+        $newBooking->setStatus("requested");
+
+        TransactionDAO::initialize();
+        TransactionDAO::createRequestTrans($newBooking);
+
+        $confirmBooking = TransactionDAO::getConfirmNewBooking($_GET['ternantID'], $_GET['postID']);
+        header('Content-Type: application/json');
+        echo json_encode($confirmBooking);
+        exit;
+    }
+}
+
 session_start();
 $loggedIn = false;
 $listAvailableProperties = [];
@@ -72,29 +92,6 @@ if(($_GET)){
         session_destroy();
         header("Location: Team02.Login_Register.php");
         exit;
-    }
-
-    if(isset($_GET['action']) && $_GET['action'] == "booking"){
-        if(isset($_GET['ternantID']) && isset($_GET['postID'])){
-
-            $newBooking = new Transaction();
-
-            $now = new DateTime();
-
-            $newBooking->setTernantID(($_GET['ternantID']));
-            $newBooking->setPostID(($_GET['postID']));
-            $newBooking->setRequestedDate($now->format('Y-m-d'));
-            $newBooking->setStatus("requested");
-
-            TransactionDAO::initialize();
-            TransactionDAO::createRequestTrans($newBooking);
-
-            $confirmBooking = TransactionDAO::getConfirmNewBooking($_GET['ternantID'], $_GET['postID']);
-            if(isset($confirmBooking)){
-                //echo "<script>alert('Congratulation! Your booking is successful!')</script>";
-            }
-            
-        }
     }
 }
 //

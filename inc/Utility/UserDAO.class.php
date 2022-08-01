@@ -127,6 +127,17 @@ class UserDAO   {
         return self::$database->getSetResult();   
 
     }
+
+    static function getUserById(string $userID)  {
+        
+        // you know the drill
+        $sql = "SELECT * FROM user where username = :userID";
+        self::$database->query($sql);
+        self::$database->bind(":userID", $userID);
+        self::$database->execute();
+        // return the single result query
+        return self::$database->getSingleResult();
+    }
     
     
 }
