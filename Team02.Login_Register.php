@@ -7,6 +7,17 @@ include_once('inc/Utility/PDOWrapper.class.php');
 include_once('inc/Utility/UserDAO.class.php');
 include_once('inc/Utility/Validate.class.php');
 
+session_start();
+
+if (session_id() != '' && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin']
+    && $_SESSION['fullNameLoggedin']) {
+        unset($_SESSION['loggedin']);
+        unset($_SESSION['IDloggedin']);
+        unset($_SESSION['photoLogin']);
+        unset($_SESSION['fullNameLoggedin']);
+        session_destroy();
+}
+
 //Check if POST or not
 if(!empty($_POST)){
     //Check if has POST from sign up button

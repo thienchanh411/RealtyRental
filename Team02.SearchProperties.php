@@ -83,7 +83,7 @@ if($_POST){
 //When user click sign out
 
 if(($_GET)){
-    var_dump($_GET);
+    
     if(isset($_GET['action']) && $_GET['action'] == "signout"){
         unset($_SESSION['loggedin']);
         unset($_SESSION['IDloggedin']);

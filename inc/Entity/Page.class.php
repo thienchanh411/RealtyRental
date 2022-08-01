@@ -296,26 +296,26 @@ class Page
 	<!-- START: header -->
 	<header role="banner" class="probootstrap-header">
 		<div class="container">
-			<a href="home_Page.html" class="probootstrap-logo"><img src="img/logo.png"></a>
+			<a href="Team02_HomePage.php" class="probootstrap-logo"><img src="img/logo.png"></a>
 
 			<a href="#" class="probootstrap-burger-menu visible-xs"><i></i></a>
 			<div class="mobile-menu-overlay"></div>
 
 			<nav role="navigation" class="probootstrap-nav hidden-xs">
 				<ul class="probootstrap-main-nav">
-					<li><a href="home_Page.html">Home</a></li>
-					<li><a href="Team02.Properties.php">Properties</a></li>
+					<li><a href="Team02_HomePage.php">Home</a></li>
+					<li><a href="Team02.SearchProperties.php">Search</a></li>
 					<li class="dropdown">
 						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
 							data-toggle="dropdown" href="#">
 							<img class="avatar" src="img/<?=$user->getPhotoUser()?>" alt="avatar">
-							<?=$_SESSION['loggedin']?>
+							<?=$user->getFullName()?>
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 							<li class="active"><a href="Team02.UserProfile.php">Profile</a></li>
-							<li><a href="my_properties.html">My Properties</a></li>
-							<li><a href="#">Add Property</a></li>
+							<li><a href="Team02.MyProperties.php">My Properties</a></li>
+							<li><a href="Team02.AddProperty.php">Add Property</a></li>
 							<li><a href="Team02.Login_Register.php">Sign out</a></li>
 						</ul>
 					</li>

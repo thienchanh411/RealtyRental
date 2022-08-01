@@ -19,12 +19,15 @@ TransactionDAO::initialize();
 session_start();
 $currentUserName = $currentPhoto = $currentID = $currentFullName = '';
 
-if (session_id() != '' && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin']) {
+if (session_id() != '' && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin']
+    && $_SESSION['fullNameLoggedin']) {
     $currentUserName = $_SESSION['loggedin'];
     $currentPhoto = $_SESSION['photoLogin'];
     $currentID = $_SESSION['IDloggedin'];
+    $currentFullName = $_SESSION['fullNameLoggedin'];
 } else {
     header("Location: Team02.Login_Register.php");
+    exit;
 }
 
 if (isset($_GET["action"]) && isset($_GET["transactionID"])) {
@@ -39,6 +42,7 @@ if (isset($_GET["action"]) && isset($_GET["transactionID"])) {
     }
 }
 
+
 $listPostingProperties = PropertyDAO::getPropertiesOfOwner($currentID);
 for ($i = 0; $i < count($listPostingProperties); $i++) {
     $postID = $listPostingProperties[$i]->getPostID();
@@ -46,7 +50,7 @@ for ($i = 0; $i < count($listPostingProperties); $i++) {
 }
 
 
-PageMyProperties::showHeader($currentUserName, $currentPhoto);
+PageMyProperties::showHeader($currentFullName, $currentPhoto);
 PageMyProperties::showMainPage($listPostingProperties);
 PageMyProperties::showFooter();
 
