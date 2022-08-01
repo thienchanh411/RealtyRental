@@ -2,7 +2,7 @@
 class PageAddProperty{
 
     //function show header page Add Property
-    public static function showHeader($currentUserName, $currentPhoto){ ?>
+    public static function showHeader($currentFullName, $currentPhoto){ ?>
     <!DOCTYPE html>
 <html lang="en">
 
@@ -35,13 +35,13 @@ class PageAddProperty{
 
 			<nav role="navigation" class="probootstrap-nav hidden-xs">
 				<ul class="probootstrap-main-nav">
-					<li><a href="home.html">Home</a></li>
-					<li><a href="Team02.Properties.php">Properties</a></li>
+					<li><a href="Team02_HomePage.php">Home</a></li>
+					<li><a href="Team02.SearchProperties.php">Search</a></li>
 					<li class="dropdown">
 						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
 							data-toggle="dropdown" href="#">
 							<img class="avatar" src="img/<?=$currentPhoto?>" alt="avatar">
-							<?=$currentUserName?>
+							<?=$currentFullName?>
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">

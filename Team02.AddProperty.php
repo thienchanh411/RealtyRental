@@ -11,12 +11,13 @@ include_once('inc/Utility/PostingDAO.class.php');
 include_once('inc/Utility/PropertyDAO.class.php');
 session_start();
 
-$currentUserName = $currentPhoto = $currentID = '';
+$currentUserName = $currentPhoto = $currentID = $currentFullName = '';
 
 if(session_id()!='' && $_SESSION['loggedin'] && $_SESSION['IDloggedin'] && $_SESSION['photoLogin']){
     $currentUserName = $_SESSION['loggedin'];
     $currentPhoto = $_SESSION['photoLogin'];
     $currentID = $_SESSION['IDloggedin'];
+    $currentFullName = $_SESSION['fullNameLoggedin'];
 }else{
     header("Location: Team02.Login_Register.php");
     exit;
@@ -73,7 +74,7 @@ if(!empty($_POST)){
     }
 }
 
-PageAddProperty::showHeader($currentUserName, $currentPhoto);
+PageAddProperty::showHeader($currentFullName, $currentPhoto);
 
 PageAddProperty::showMainPage($errorInput);
 PageAddProperty::showFooter();
