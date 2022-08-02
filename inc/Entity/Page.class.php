@@ -333,7 +333,7 @@ class Page
 	<!-- END: header -->
     <?php }
 
-    static function showEditFormProfile(User $user){
+    static function showEditFormProfile(User $user, bool $isReadOnly){
         
         if($user->getPhotoUser() != null){
             $photoUser = $user->getPhotoUser();
@@ -342,7 +342,7 @@ class Page
     <section class="probootstrap-section main-section">
 		<div class="container">
 			<div class="row equal">
-				<div class="col-md-3 padding-0">
+				<div <?= $isReadOnly ? "class='col-md-offset-4 col-md-4 padding-0'" : "class='col-md-3 padding-0'" ?>>
 					<div class="probootstrap-card probootstrap-person">
 						<div class="probootstrap-card-media">
 							<img src="img/<?=$photoUser?>" class="img-responsive"
@@ -359,7 +359,7 @@ class Page
 						</div>
 					</div>
 				</div>
-				<div class="col-md-9 padding-0">
+				<div class="col-md-9 padding-0" <?= $isReadOnly ? "style='display: none'" : "" ?>>
 					<div class="probootstrap-card profile-detail">
 						<form class="form-horizontal" method="post">
 							<div>

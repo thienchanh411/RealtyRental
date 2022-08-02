@@ -129,7 +129,7 @@ class UserDAO   {
     static function getUserById(string $userID)  {
         
         // you know the drill
-        $sql = "SELECT * FROM user where username = :userID";
+        $sql = "SELECT * FROM user where userID = :userID";
         self::$database->query($sql);
         self::$database->bind(":userID", $userID);
         self::$database->execute();
