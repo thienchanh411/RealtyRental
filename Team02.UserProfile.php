@@ -23,9 +23,9 @@ if(!empty($_POST)){
     
     $editUser = new User();
     $editUser->setUserName(trim($_SESSION['loggedin']));
-    if(isset($_POST['photo'])){
+    if(isset($_POST['photo']) && $_POST['photo'] != ""){
         $editUser->setPhotoUser($_POST['photo']);
-    }else $editUser->setPhotoUser("pngfind.com-privacy-icon-png-4703547.png");
+    }else $editUser->setPhotoUser($currentUser->getPhotoUser());
 
     $editUser->setPassword(trim($_POST['password']));
     $editUser->setFullName(trim($_POST['fullname']));
@@ -46,6 +46,7 @@ if(!empty($_POST)){
     unset($_SESSION['loggedin']);
     session_destroy();
     header("Location: Team02.Login_Register.php");
+    exit;
     }
 }
 Page::showHeaderProfile($currentUser);
