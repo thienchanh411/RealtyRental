@@ -193,7 +193,7 @@ class Page
 
                                 <div class="page-title probootstrap-animate">
                                     <div class="probootstrap-breadcrumbs">
-                                        <a href="/index.html">Home</a><span>Properties</span>
+                                        <a href="Team02_HomePage.php">Home</a><span>Properties</span>
                                     </div>
                                     <h1>Properties</h1>
                                 </div>

@@ -28,7 +28,7 @@ class PageAddProperty{
 	<!-- START: header -->
 	<header role="banner" class="probootstrap-header">
 		<div class="container">
-			<a href="home.html" class="probootstrap-logo"><img src="img/logo.png"></a>
+			<a href="Team02_HomePage.php" class="probootstrap-logo"><img src="img/logo.png"></a>
 
 			<a href="#" class="probootstrap-burger-menu visible-xs"><i></i></a>
 			<div class="mobile-menu-overlay"></div>
@@ -47,7 +47,7 @@ class PageAddProperty{
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 							<li><a href="Team02.UserProfile.php">Profile</a></li>
 							<li><a href="Team02.MyProperties.php">My Properties</a></li>
-							<li class="active" href="Team02.AddProperty.php"><a href="#">Add Property</a></li>
+							<li class="active"><a href="Team02.AddProperty.php">Add Property</a></li>
 							<li><a href="Team02.Login_Register.php">Sign out</a></li>
 						</ul>
 					</li>
