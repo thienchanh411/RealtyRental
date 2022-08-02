@@ -119,7 +119,7 @@ class UserDAO   {
 
         // you know the drill
         // return the multiple result query 
-        $sql = "SELECT * FROM user";
+        $sql = "SELECT * FROM user WHERE role !='admin'";
         self::$database->query($sql);
         self::$database->execute();
         return self::$database->getSetResult();   

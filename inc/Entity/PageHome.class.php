@@ -294,7 +294,7 @@ class PageHome
                         <div class="probootstrap-card-text">
                             <h2 class="probootstrap-card-heading mb0">Vo Thien Chanh</h2>
                             <p><small>Developer</small></p>
-                            <p><a href="#">View Details</a></p>
+                            <p><a href="https://www.linkedin.com/in/chanh-vo/" target="_blank">View Details</a></p>
                         </div>
                     </div>
                 </div>

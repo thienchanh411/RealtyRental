@@ -48,9 +48,10 @@ if(!empty($_POST)){
 
     UserDAO::updateUser($editUser);
     //header("Location: Team02.Login_Register.php");
-    unset($_SESSION['loggedin']);
-    session_destroy();
-    header("Location: Team02.Login_Register.php");
+    
+    $_SESSION['photoLogin'] = $editUser->getPhotoUser();
+    $_SESSION['fullNameLoggedin'] = $editUser->getFullName();
+    header('Location: Team02.UserProfile.php');
     exit;
     }
 }
