@@ -39,7 +39,7 @@ class PageMyProperties
 							<li class="dropdown">
 								<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" href="#">
 									<img class="avatar" src="img/<?= $currentPhoto ?>" alt="avatar">
-									<?=$currentFullName?>
+									<?= $currentFullName ?>
 									<span class="caret"></span>
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -73,7 +73,10 @@ class PageMyProperties
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12">
-							<h2 class="mb50">My Properties<span class="pull-right"><a class="btn btn-primary" href="Team02.AddProperty.php">Add Property</a></span></h2>
+							<h2 class="mb50">
+								<span>My Properties</span>
+								<span><a class="btn btn-primary" href="Team02.AddProperty.php">Add Property</a></span>
+							</h2>
 							<?php
 
 							//Check if list Posting properties is not null
@@ -174,9 +177,7 @@ class PageMyProperties
 	<?php }
 										echo '				</ul>';
 									}
-									echo '</div>
-						</div>
-			</div>';
+									echo '</div>';
 								}
 							}
 

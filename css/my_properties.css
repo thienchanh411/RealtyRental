@@ -14,10 +14,10 @@
     }
 }
 
-@media (max-width: 768px) {
-    body>section>div>div>div>h2>span.pull-right {
-        float: left !important;
-    }
+body>section>div>div>div>h2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .probootstrap-section.main-section>.container>.row>div>h2 {

@@ -11,7 +11,7 @@ create table user (
 	fullName VARCHAR(50),
 	address VARCHAR(50),	
 	phoneNumber VARCHAR(15),
-	photoUser VARCHAR(50),
+	photoUser VARCHAR(100),
 	role VARCHAR(10),
 	status VARCHAR(20)		
 ) Engine=InnoDB;
@@ -46,7 +46,7 @@ create table postingproperty (
 	numberOfBed TINYINT(2),
 	numberOfBath TINYINT(2),
 	numberOfGarage TINYINT(2),
-	picture VARCHAR(20),
+	picture VARCHAR(100),
 	status VARCHAR(20), 
 	description VARCHAR(100),
 	FOREIGN KEY (ownerID) REFERENCES user (userID) ON DELETE CASCADE ON UPDATE CASCADE		
