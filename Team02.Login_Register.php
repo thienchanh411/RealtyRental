@@ -99,7 +99,7 @@ if(!empty($_POST)){
                 exit;
                 break;
             case 'admin': 
-                header("Location: Team02.Admin.php");
+                header("Location: TeamNumber02.php");
                 exit;
                 break;
 
@@ -112,7 +112,7 @@ if(!empty($_POST)){
         //     header("Location: Team02.SearchProperties.php");
         // }
         // if($verifiedUser->getRole()=="admin"){
-        //     header("Location: Team02.Admin.php");
+        //     header("Location: TeamNumber02.php.php");
         // }
         // exit;
     }else echo $errorAlert;

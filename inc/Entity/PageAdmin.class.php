@@ -43,7 +43,7 @@ class PageAdmin
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li><a href="Team02.UserProfile.php">Profile</a></li>
-                                    <li class="active"><a href="Team02.Admin.php">Admin</a></li>
+                                    <li class="active"><a href="TeamNumber02.php">Admin</a></li>
                                     <li><a href="Team02.Login_Register.php">Sign out</a></li>
                                 </ul>
                             </li>
