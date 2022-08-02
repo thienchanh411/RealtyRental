@@ -1,7 +1,0 @@
-GET http://localhost/team02project/RestAPI.HomePage.php HTTP/1.1
-Content-Type: application/json
-
-{
-    
-}
-
