@@ -11,15 +11,15 @@ session_start();
 UserDAO::initialize();
 if(isset($_SESSION['loggedin'])){
     $currentUser = UserDAO::getUserByUsername($_SESSION['loggedin']);
-    $isReadOnly = false;
+    $isViewProfile = false;
 }else{
     header("Location: Team02.Login_Register.php");   
     exit;
 }
 
 if(isset($_GET["action"]) && isset($_GET["id"]) && $_GET["action"] == "view"){
-    $currentUser = UserDAO::getUserById($_GET["id"]);
-    $isReadOnly = true;
+    $viewUser = UserDAO::getUserById($_GET["id"]);
+    $isViewProfile = true;
 }
 
 //Check if there is Edit button clicked
@@ -56,7 +56,10 @@ if(!empty($_POST)){
 }
 Page::showHeaderProfile($currentUser);
 
-Page::showEditFormProfile($currentUser, $isReadOnly);
+if($isViewProfile)
+    Page::showEditFormProfile($viewUser, $isViewProfile);
+else
+    Page::showEditFormProfile($currentUser, $isViewProfile);
 Page::showFooter();
     
 // If the logout button is clicked =>     
