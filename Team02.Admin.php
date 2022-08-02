@@ -18,6 +18,7 @@ if (session_id() != '' && isset($_SESSION['loggedin']) && $_SESSION['loggedin'] 
     $currentUserName = $_SESSION['loggedin'];
     $currentPhoto = $_SESSION['photoLogin'];
     $currentID = $_SESSION['IDloggedin'];
+    $currentFullName = $_SESSION['fullNameLoggedin'];
 } else {
     header("Location: Team02.Login_Register.php");
 }
@@ -42,7 +43,7 @@ $listUsers = UserDAO::getUsers();
 $listPostingProperties = PropertyDAO::getAllProperties();
 $listTransactions = TransactionDAO::getAllTransactions();
 
-PageAdmin::showHeader($currentUserName, $currentPhoto);
+PageAdmin::showHeader($currentFullName, $currentPhoto);
 PageAdmin::showMainPage(count($listPostingProperties), count($listTransactions), count($listUsers), 
     $listPostingProperties, $listUsers);
 PageAdmin::showFooter();
