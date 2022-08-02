@@ -308,7 +308,7 @@ class Page
 					<li class="dropdown">
 						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
 							data-toggle="dropdown" href="#">
-							<img class="avatar" src="img/<?=$user->getPhotoUser()?>" alt="avatar">
+							<img class="avatar" src="img/<?= $user->getPhotoUser() ? $user->getPhotoUser() : "pngfind.com-privacy-icon-png-4703547.png" ?>" alt="avatar">
 							<?=$user->getFullName()?>
 							<span class="caret"></span>
 						</a>
