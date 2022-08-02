@@ -2,7 +2,7 @@ drop database if exists FinalProject;
 create database FinalProject;
 use FinalProject;
 
---Create Table USER
+-- Create Table USER
 create table user (
 	userID SMALLINT(5) AUTO_INCREMENT PRIMARY KEY,	
 	email VARCHAR(50),
@@ -29,7 +29,7 @@ INSERT INTO user (email, username, password, fullName, address, phoneNumber, pho
         VALUES ("inactive@gmail.com", "inactive", "$2y$10$ikuSSzMM2cnfpE4Co5lLrercvxxtuANjhbc7n/ui52pnZSRCGXwry",
 		"I am InActive", "999 Kingsway Avenue Burnaby BC", "778-877-7878", "pngfind.com-privacy-icon-png-4703547.png", "user", "inactive");
 
---Create table PROPERTY
+-- Create table PROPERTY
 create table postingproperty (
 	postID SMALLINT(5) AUTO_INCREMENT PRIMARY KEY,	
 	ownerID SMALLINT(5),
@@ -60,7 +60,7 @@ INSERT INTO postingproperty (ownerID, postTitle, postDate, availableDate, monthl
 -- INSERT INTO property (ownerID, street, city, province, type, area, numberOfBed, numberOfBath, numberOfGarage, picture, status, description)
 -- 	VALUES (3, "700 Royal street", "Burnaby", "BC", "private room", 175, 4, 3, 1, "slider_1.jpg", "available", "Vintage, bright entire hourse. Near supermarket, bus stop, community center");
 
---Create table TRANSACTION
+-- Create table TRANSACTION
 create table transaction (
 	transactionID SMALLINT(5) AUTO_INCREMENT PRIMARY KEY,	
 	ternantID SMALLINT(5),

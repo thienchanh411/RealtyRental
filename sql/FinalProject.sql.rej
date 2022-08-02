@@ -1,9 +1,0 @@
-diff a/sql/FinalProject.sql b/sql/FinalProject.sql	(rejected hunks)
-@@ -21,6 +21,7 @@
- 		"Thien Chanh Vo", "6691 Fulton Avenue Burnaby BC", "123-234-3456", "user", "active");
- INSERT INTO user (email, username, password, fullName, address, phoneNumber, role, status)
-         VALUES ("thienchanh522@gmail.com", "thienchanh522", "$2y$10$4O4oR3VtplOL//UhvRJEuOibf.VxLSBMP/6MOt3tOsQxZDYW9ZJ6q",
-+		"Chanh Vo", "6691 18th Avenue Burnaby BC", "234-111-0011", "owner", "inactive");
- INSERT INTO user (email, username, password, fullName, address, phoneNumber, role, status)
-         VALUES ("onchua2006@gmail.com", "nhattan", "$2y$10$qHoZynn6trlhiB9/.zyLFu/OL/X42ggHaxjFQn47gpzPwb6J/L/2u",
- 		"Nhat Tan Vu", "200 CanadaWay Avenue Burnaby BC", "778-877-7788", "owner", "active");
