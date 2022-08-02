@@ -897,7 +897,9 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   color: #ffffff;
 }
 .probootstrap-card.probootstrap-listing .probootstrap-card-text .probootstrap-listing-location {
-  display: table;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin-bottom: 20px;
 }
 .probootstrap-card.probootstrap-listing .probootstrap-card-text .probootstrap-listing-location i,
@@ -914,6 +916,9 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   font-weight: 400;
   font-size: 14px;
   color: #bdbdbd;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .probootstrap-card.probootstrap-listing .probootstrap-card-text .probootstrap-listing-category {
   margin-bottom: 5px;
