@@ -11,19 +11,48 @@
     .probootstrap-main-nav.filter {
         padding: 0 10px;
     }
+
+    .probootstrap-listing .probootstrap-card-action {
+        margin: 10px;
+        position: relative;
+        border-top: 0;
+    }    
+
+    .probootstrap-listing .probootstrap-card-action::before {
+        content: '';
+        height: 1px;
+        background-color: #f0f0f0;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+    }    
 }
 
 .probootstrap-listing .manage-bookings {
     display: block;
 }
 
+.probootstrap-listing.rejected {
+    border-left: 2px solid #d9534f;
+}
+
 .probootstrap-listing.rejected .probootstrap-card-action {
     background-color: #d9534f;
+}
+
+.probootstrap-listing.approved {
+    border-left: 2px solid #5cb85c;
 }
 
 .probootstrap-listing.approved .probootstrap-card-action {
     background-color: #5cb85c;
 }
+
+.probootstrap-listing.pending {
+    border-left: 2px solid #f0ad4e;
+}
+
 
 .probootstrap-listing.pending .probootstrap-card-action {
     background-color: #f0ad4e;

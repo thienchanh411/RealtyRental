@@ -127,6 +127,14 @@ body>section>div>div>div>h2 {
     .probootstrap-listing .probootstrap-card-action a:nth-of-type(3) {
         border-left: 1px solid #e0e0e0;
     }
+
+    .timeline {
+        padding-right: 0 !important;
+    }
+
+    .timeline .timeline-item .content {
+        justify-content: space-between;
+    }
 }
 
 .probootstrap-listing .manage-bookings {

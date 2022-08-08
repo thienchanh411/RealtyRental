@@ -54,7 +54,7 @@
 					<a href="#" class="probootstrap-burger-menu"><i></i></a>
 					<h5>About RealtyRental</h5>
 					<p>A real estate rental platform and a team project for Douglas College course
-						CSIS 3280, "Web Based Scripting"</p>
+						CSIS-3280, "Web Based Scripting"</p>
 				</div>
 			</nav>
 		</div>
@@ -66,14 +66,37 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<h2 class="mb30">My Bookings</h2>
-					
+
+					<script>
+						function filterBookings(e, type) {
+							[].forEach.call(document.getElementsByClassName('probootstrap-listing'), function (element) {
+								if (!type || element.classList.contains(type)) {
+									element.style.display = 'block';
+								} else {
+									element.style.display = 'none';
+								}
+							});
+							[].forEach.call(document.querySelectorAll(".probootstrap-main-nav.filter li"), function (element) {
+								element.classList.remove("active");
+							});
+							e.target.closest("li").classList.add("active");
+						}
+					</script>
+
 					<ul class="probootstrap-main-nav mb50 filter">
-						<li class="active"><a href="#">All</a></li>
-						<li><a href="#">Pending</a></li>
-						<li><a href="#">Approved</a></li>
-						<li><a href="#">Rejected</a></li>
-						<hr/>
-					</ul>			
+						<li class="active"><a href="#"
+								onclick="((e) => filterBookings(e, ''))(arguments[0]); return false;">All</a></li>
+						<li><a href="#"
+								onclick="((e) => filterBookings(e, 'pending'))(arguments[0]); return false;">Pending</a>
+						</li>
+						<li><a href="#"
+								onclick="((e) => filterBookings(e, 'approved'))(arguments[0]); return false;">Approved</a>
+						</li>
+						<li><a href="#"
+								onclick="((e) => filterBookings(e, 'rejected'))(arguments[0]); return false;">Rejected</a>
+						</li>
+						<hr />
+					</ul>
 
 					<div class="probootstrap-card probootstrap-listing container rejected">
 						<div class="row equal">
@@ -81,7 +104,8 @@
 								<img src="img/slider_1.jpg" class="img-responsive" alt="3 Bed Room Property for Sale">
 							</div>
 							<div class="probootstrap-card-text-main col-md-4">
-								<h2 class="probootstrap-card-heading"><a href="property_detail.html?action=edit&id=1">Spacious, Central Location,
+								<h2 class="probootstrap-card-heading"><a
+										href="property_detail.html?action=edit&id=1">Spacious, Central Location,
 										Quiet, Douglas, Walmat, Saveon, Restaurants</a></h2>
 								<div class="probootstrap-listing-location">
 									<i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
@@ -138,7 +162,8 @@
 									<li class="timeline-item">
 										<p class="time">On 20-Jul-2022, 09:30 AM</p>
 										<div class="content">
-											<span>Your booked this property from <a target="_blank" href="profile.html?action=view&id=2">Nhat Tan Vu</a>.</span>
+											<span>Your booked this property from <a target="_blank"
+													href="profile.html?action=view&id=2">Nhat Tan Vu</a>.</span>
 										</div>
 									</li>
 									<li class="timeline-item rejected">
@@ -157,7 +182,8 @@
 								<img src="img/slider_2.jpg" class="img-responsive" alt="Carmen's Homestay">
 							</div>
 							<div class="probootstrap-card-text-main col-md-4">
-								<h2 class="probootstrap-card-heading"><a href="property_detail.html?action=edit&id=2">Carmen's Homestay</a></h2>
+								<h2 class="probootstrap-card-heading"><a
+										href="property_detail.html?action=edit&id=2">Carmen's Homestay</a></h2>
 								<div class="probootstrap-listing-location">
 									<i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
 								</div>
@@ -204,7 +230,8 @@
 									<li class="timeline-item">
 										<p class="time">On 25-Jul-2022, 11:30 AM</p>
 										<div class="content">
-											<span>You booked this property from <a target="_blank" href="profile.html?action=view&id=1">Chanh Vo</a>.</span>
+											<span>You booked this property from <a target="_blank"
+													href="profile.html?action=view&id=1">Chanh Vo</a>.</span>
 										</div>
 									</li>
 									<li class="timeline-item approved">
@@ -215,15 +242,16 @@
 									</li>
 								</ul>
 							</div>
-						</div>						
+						</div>
 					</div>
 					<div class="probootstrap-card probootstrap-listing container pending">
 						<div class="row equal">
 							<div class="probootstrap-card-media col-md-3">
-								<img src="img/slider_2.jpg" class="img-responsive" alt="Carmen's Homestay">
+								<img src="img/slider_4.jpg" class="img-responsive" alt="Carmen's Homestay">
 							</div>
 							<div class="probootstrap-card-text-main col-md-4">
-								<h2 class="probootstrap-card-heading"><a href="property_detail.html?action=edit&id=2">Carmen's Homestay</a></h2>
+								<h2 class="probootstrap-card-heading"><a
+										href="property_detail.html?action=edit&id=2">Carmen's Homestay</a></h2>
 								<div class="probootstrap-listing-location">
 									<i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
 								</div>
@@ -270,12 +298,15 @@
 									<li class="timeline-item pending">
 										<p class="time">On 04-Aug-2022, 11:30 AM</p>
 										<div class="content">
-											<span>You booked this property from <a target="_blank" href="profile.html?action=view&id=1">Chanh Vo</a>.</span>
+											<span>You booked this property from <a target="_blank"
+													href="profile.html?action=view&id=1">Chanh Vo</a>.</span>
+											<a class="text-danger"
+												href="my_bookings.html?action=withdraw&id=1">Withdraw</a>
 										</div>
 									</li>
 								</ul>
 							</div>
-						</div>						
+						</div>
 					</div>
 				</div>
 			</div>
@@ -289,7 +320,7 @@
 					<div class="probootstrap-footer-widget">
 						<h4 class="heading">About RealtyRental</h4>
 						<p>A real estate rental platform and a team project for Douglas College
-							course CSIS 3280, "Web Based Scripting"</p>
+							course CSIS-3280, "Web Based Scripting"</p>
 						<p><a href="https://www.douglascollege.ca/course/csis-3280">Learn more about the course...</a>
 						</p>
 					</div>

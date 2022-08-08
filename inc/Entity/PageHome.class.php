@@ -75,7 +75,7 @@ class PageHome
             <div class="extra-text visible-xs">
                 <a href="#" class="probootstrap-burger-menu"><i></i></a>
                 <h5>About RealtyRental</h5>
-                <p>A real estate rental platform and a team project for Douglas College course CSIS 3280,
+                <p>A real estate rental platform and a team project for Douglas College course CSIS-3280,
                     "Web Based Scripting"</p>
             </div>
         </nav>
@@ -332,7 +332,7 @@ class PageHome
                         <div class="col-xs-12">
                             <div class="probootstrap-footer-widget">
                                 <h4 class="heading">About RealtyRental</h4>
-                                <p>A real estate rental platform and a team project for Douglas College course CSIS 3280,
+                                <p>A real estate rental platform and a team project for Douglas College course CSIS-3280,
                                     "Web Based Scripting"</p>
                                 <p><a href="https://www.douglascollege.ca/course/csis-3280">Learn more about the course...</a></p>
                             </div>
