@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RealtyRental &mdash; A real estate rental platform</title>
+	<meta name="description" content="A real estate rental platform">
+	<meta name="keywords" content="real estate, room, house, property, rental">
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles-merged.css">
+	<link rel="stylesheet" href="css/style.min.css">
+	<link rel="stylesheet" href="css/my_properties.css">
+	<link rel="stylesheet" href="css/my_bookings.css">
+
+	<!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<!-- START: header -->
+	<header role="banner" class="probootstrap-header">
+		<div class="container">
+			<a href="homepage.html" class="probootstrap-logo"><img src="img/logo.png"></a>
+
+			<a href="#" class="probootstrap-burger-menu visible-xs"><i></i></a>
+			<div class="mobile-menu-overlay"></div>
+
+			<nav role="navigation" class="probootstrap-nav hidden-xs">
+				<ul class="probootstrap-main-nav">
+					<li><a href="homepage.html">Home</a></li>
+					<li><a href="search.html">Search</a></li>
+					<li class="dropdown">
+						<a id="dropdownMenuLink" class="btn-secondary dropdown-toggle" type="button"
+							data-toggle="dropdown" href="#">
+							<img class="avatar" src="img/pngfind.com-privacy-icon-png-4703547.png" alt="avatar">
+							Nhat Tan Vu
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<li><a href="profile.html">Profile</a></li>
+							<li><a href="my_properties.html">My Properties</a></li>
+							<li class="active"><a href="my_bookings.html">My Bookings</a></li>
+							<li><a href="property_detail.html?action=add">Add Property</a></li>
+							<li><a href="login.html">Sign out</a></li>
+						</ul>
+					</li>
+
+				</ul>
+				<div class="extra-text visible-xs">
+					<a href="#" class="probootstrap-burger-menu"><i></i></a>
+					<h5>About RealtyRental</h5>
+					<p>A real estate rental platform and a team project for Douglas College course
+						CSIS 3280, "Web Based Scripting"</p>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!-- END: header -->
+
+	<section class="probootstrap-section main-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h2 class="mb30">My Bookings</h2>
+					
+					<ul class="probootstrap-main-nav mb50 filter">
+						<li class="active"><a href="#">All</a></li>
+						<li><a href="#">Pending</a></li>
+						<li><a href="#">Approved</a></li>
+						<li><a href="#">Rejected</a></li>
+						<hr/>
+					</ul>			
+
+					<div class="probootstrap-card probootstrap-listing container rejected">
+						<div class="row equal">
+							<div class="probootstrap-card-media col-md-3">
+								<img src="img/slider_1.jpg" class="img-responsive" alt="3 Bed Room Property for Sale">
+							</div>
+							<div class="probootstrap-card-text-main col-md-4">
+								<h2 class="probootstrap-card-heading"><a href="property_detail.html?action=edit&id=1">Spacious, Central Location,
+										Quiet, Douglas, Walmat, Saveon, Restaurants</a></h2>
+								<div class="probootstrap-listing-location">
+									<i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
+								</div>
+								<div class="probootstrap-listing-description">
+									<p>New Westminster High School(just behind the house)</p>
+									<p>Douglas College: Walking Distance</p>
+									<p>SFU: 10 minutes driving</p>
+									<p>New Westminster Town Center: 1 block away, with tons of restaurants, stores, Tim
+										Hortons, McDonalds, Starbucks</p>
+									<p>SaveOnFood, Walmart: 10 minutes walking</p>
+									<p>Metrotown: 10 minutes driving</p>
+									<p>Downtown: 25 Minutes driving</p>
+									<p>UBC: 30 minutes driving</p>
+									<p>Bus Stops: #123, #106, #128, #101,</p>
+								</div>
+								<div class="probootstrap-card-extra">
+									<ul>
+										<li>
+											Area
+											<span>2400 m2</span>
+										</li>
+										<li>
+											Beds
+											<span>3</span>
+										</li>
+										<li>
+											Baths
+											<span>2</span>
+										</li>
+										<li>
+											Garages
+											<span>1</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="probootstrap-card-text col-md-3">
+								<div class="probootstrap-listing-price"><strong>$ 1,180</strong> / month</div>
+								<div class="probootstrap-listing-posted"><i class="icon-calendar"></i> 24-Jul-2022
+									(Posted)
+								</div>
+								<div class="probootstrap-listing-available"><i class="icon-calendar"></i> Now
+									(Available)</div>
+								<div class="probootstrap-listing-contract"><i class="icon-profile"></i> 6 months</div>
+							</div>
+							<div class="probootstrap-card-action col-md-2">
+								<h2 style="text-align: center;">Rejected</h2>
+							</div>
+						</div>
+						<div class="row manage-bookings">
+							<div class="col-md-offset-3 col-md-9">
+								<ul class="timeline">
+									<li class="timeline-item">
+										<p class="time">On 20-Jul-2022, 09:30 AM</p>
+										<div class="content">
+											<span>Your booked this property from <a target="_blank" href="profile.html?action=view&id=2">Nhat Tan Vu</a>.</span>
+										</div>
+									</li>
+									<li class="timeline-item rejected">
+										<p class="time">On 22-Jul-2022, 11:15 PM</p>
+										<div class="content">
+											<span>Owner rejected your booking.</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="probootstrap-card probootstrap-listing container approved">
+						<div class="row equal">
+							<div class="probootstrap-card-media col-md-3">
+								<img src="img/slider_2.jpg" class="img-responsive" alt="Carmen's Homestay">
+							</div>
+							<div class="probootstrap-card-text-main col-md-4">
+								<h2 class="probootstrap-card-heading"><a href="property_detail.html?action=edit&id=2">Carmen's Homestay</a></h2>
+								<div class="probootstrap-listing-location">
+									<i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
+								</div>
+								<div class="probootstrap-listing-description">
+									Fun and loving family. Easy to get along with.
+								</div>
+								<div class="probootstrap-card-extra">
+									<ul>
+										<li>
+											Area
+											<span>2400 m2</span>
+										</li>
+										<li>
+											Beds
+											<span>3</span>
+										</li>
+										<li>
+											Baths
+											<span>2</span>
+										</li>
+										<li>
+											Garages
+											<span>1</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="probootstrap-card-text col-md-3">
+								<div class="probootstrap-listing-price"><strong>$ 650</strong> / month</div>
+								<div class="probootstrap-listing-posted"><i class="icon-calendar"></i> 24-Jul-2022
+									(Posted)
+								</div>
+								<div class="probootstrap-listing-available"><i class="icon-calendar"></i> 01-Aug-2022
+									(Available)</div>
+								<div class="probootstrap-listing-contract"><i class="icon-profile"></i> N/A</div>
+							</div>
+							<div class="probootstrap-card-action col-md-2">
+								<h2 style="text-align: center;">Approved</h2>
+							</div>
+						</div>
+						<div class="row manage-bookings">
+							<div class="col-md-offset-3 col-md-9">
+								<ul class="timeline">
+									<li class="timeline-item">
+										<p class="time">On 25-Jul-2022, 11:30 AM</p>
+										<div class="content">
+											<span>You booked this property from <a target="_blank" href="profile.html?action=view&id=1">Chanh Vo</a>.</span>
+										</div>
+									</li>
+									<li class="timeline-item approved">
+										<p class="time">On 25-Jul-2022, 07:15 PM</p>
+										<div class="content">
+											<span>Owner approved your booking.</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>						
+					</div>
+					<div class="probootstrap-card probootstrap-listing container pending">
+						<div class="row equal">
+							<div class="probootstrap-card-media col-md-3">
+								<img src="img/slider_2.jpg" class="img-responsive" alt="Carmen's Homestay">
+							</div>
+							<div class="probootstrap-card-text-main col-md-4">
+								<h2 class="probootstrap-card-heading"><a href="property_detail.html?action=edit&id=2">Carmen's Homestay</a></h2>
+								<div class="probootstrap-listing-location">
+									<i class="icon-location2"></i> <span>360 W Wellington Chicago, IL 60657</span>
+								</div>
+								<div class="probootstrap-listing-description">
+									Fun and loving family. Easy to get along with.
+								</div>
+								<div class="probootstrap-card-extra">
+									<ul>
+										<li>
+											Area
+											<span>2400 m2</span>
+										</li>
+										<li>
+											Beds
+											<span>3</span>
+										</li>
+										<li>
+											Baths
+											<span>2</span>
+										</li>
+										<li>
+											Garages
+											<span>1</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="probootstrap-card-text col-md-3">
+								<div class="probootstrap-listing-price"><strong>$ 880</strong> / month</div>
+								<div class="probootstrap-listing-posted"><i class="icon-calendar"></i> 24-Jul-2022
+									(Posted)
+								</div>
+								<div class="probootstrap-listing-available"><i class="icon-calendar"></i> 01-Aug-2022
+									(Available)</div>
+								<div class="probootstrap-listing-contract"><i class="icon-profile"></i> N/A</div>
+							</div>
+							<div class="probootstrap-card-action col-md-2">
+								<h2 style="text-align: center;">Pending</h2>
+							</div>
+						</div>
+						<div class="row manage-bookings">
+							<div class="col-md-offset-3 col-md-9">
+								<ul class="timeline">
+									<li class="timeline-item pending">
+										<p class="time">On 04-Aug-2022, 11:30 AM</p>
+										<div class="content">
+											<span>You booked this property from <a target="_blank" href="profile.html?action=view&id=1">Chanh Vo</a>.</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="probootstrap-footer probootstrap-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="probootstrap-footer-widget">
+						<h4 class="heading">About RealtyRental</h4>
+						<p>A real estate rental platform and a team project for Douglas College
+							course CSIS 3280, "Web Based Scripting"</p>
+						<p><a href="https://www.douglascollege.ca/course/csis-3280">Learn more about the course...</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row copyright">
+				<div class="col-xs-12">
+					<div class="probootstrap-footer-widget">
+						<p>&copy; 2017 <a href="https://uicookies.com/">uiCookies:Haus</a>. Designed by <a
+								href="https://uicookies.com/">uicookies.com</a> <br> Demo Photos from <a
+								href="https://pixabay.com/">Pixabay</a> &amp; <a
+								href="https://unsplash.com/">Unsplash</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="js/scripts.min.js"></script>
+	<script src="js/main.min.js"></script>
+
+</body>
+
+</html>

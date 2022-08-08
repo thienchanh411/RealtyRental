@@ -1,0 +1,35 @@
+.probootstrap-main-nav.filter {
+    margin-top: 0;
+}
+
+.probootstrap-main-nav.filter hr {
+    border-top: 1px solid #f0f0f0;
+    margin-top: 10px;
+}
+
+@media (max-width: 991.9px) {
+    .probootstrap-main-nav.filter {
+        padding: 0 10px;
+    }
+}
+
+.probootstrap-listing .manage-bookings {
+    display: block;
+}
+
+.probootstrap-listing.rejected .probootstrap-card-action {
+    background-color: #d9534f;
+}
+
+.probootstrap-listing.approved .probootstrap-card-action {
+    background-color: #5cb85c;
+}
+
+.probootstrap-listing.pending .probootstrap-card-action {
+    background-color: #f0ad4e;
+}
+
+.probootstrap-card-action h2 {
+    color: white;
+    margin: 10px 0;
+}
